@@ -1,0 +1,69 @@
+/*-----SectionOne---------------------------------------------------------------------------*/
+
+.section-one {
+  /* центрируем*/
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  /* background: linear-gradient(90deg, #C02425, #f0cb35, #C02425); */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto 1500px;
+}
+
+.h4__item {
+  font-weight: 500;
+  /* Жирность шрифта */
+}
+
+td {
+  vertical-align: middle;
+}
+
+.table-product {
+  font-weight: 300;
+  /* Жирность шрифта */
+  /* Функция calc() CSS позволяет выполнять вычисления 
+  при указании значений свойств CSS. */
+  font-size: calc(1.275rem + .3vw);
+  text-align: center;
+  vertical-align: middle;
+  font-weight: 700;
+}
+
+.table-heading,
+.table-num-position,
+.table-quantity,
+.table-unit {
+  text-align: center;
+}
+
+.table-product {
+  text-align: left;
+}
+
+
+
+input {
+  border: 1px solid #dee2e6;
+  /* Параметры границы */
+  background-color: transparent;
+  text-align: center;
+}
+
+.btnBlock-section-one {
+  text-align: right;
+}
+
+.btn__itemOne {
+  width: 180px;
+  height: 62px;
+  margin-right: 20px;
+  font-size: 30px;
+}
+
+.btn {
+  margin-bottom: 20px;
+}

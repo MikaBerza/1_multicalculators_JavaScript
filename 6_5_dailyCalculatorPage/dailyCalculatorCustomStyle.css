@@ -1,0 +1,218 @@
+input {
+  margin-right: 10px;
+  border-radius: 4px;
+  /*уберем тень с input*/
+  border: none
+}
+
+h5 {
+  padding-right: 10px;
+  padding-top: 10px;
+}
+
+/*-----SectionOne---------------------------------------------------------------------------*/
+
+.section-one {
+  /* центрируем*/
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  background-image: url('/5_img/5_5_dailyCalculatorImg/dailyFon1.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.card {
+  background: transparent;
+  border: transparent;
+}
+
+.card-title {
+  margin: auto;
+  max-width: 1000px;
+}
+
+.card-img-top {
+  margin: auto;
+  width: 100px;
+  height: 100px;
+}
+
+.card-body {
+  padding: 5px;
+}
+
+.h4__item {
+  font-weight: 400;
+  /* Жирность шрифта */
+  padding: 16px;
+}
+
+.input-group {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+
+.input-group-text {
+  display: block;
+  min-width: 90px;
+}
+
+.form-control {
+  display: flex;
+  max-width: 400px;
+}
+
+.btn {
+  margin-right: 18px;
+}
+
+
+/* при ширине экрана меньше 337px делаем внешнии отступы 
+т.к. кнопка смещается под инпуты и налезает на них */
+@media (max-width:337px) {
+  .btn-success {
+    margin-top: 10px;
+    margin-right: 0px;
+  }
+}
+
+/* центрируем */
+.requirement {
+  display: flex;
+  /* задает способ размещения элементов flex в контейнере flex, 
+  определяя главную ось и направление (нормальное или обратное). */
+  flex-direction: column;
+  /* определяет, как браузер распределяет пространство между элементами 
+  содержимого и вокруг них вдоль главной оси контейнера flex и 
+  встроенной оси контейнера grid. */
+  justify-content: space-around;
+  align-items: center;
+}
+
+/*------------Форма появляется после вычисления (Вычислитель дней) ------------*/
+/*До расчета, стилизация отсутсвует (Неактивный класс)*/
+.outputInactive {
+  opacity: 0;
+}
+
+/* Условие №1 */
+/* После расчета стилизация появляется (Активный класс) */
+.form-control__requirementOne {
+  display: flex;
+  max-width: 400px;
+  border: 2px solid red;
+  color: red;
+  font-weight: 600;
+}
+
+.outputActiveOne {
+  min-width: 200px;
+  min-height: 75px;
+  padding: 1rem;
+  color: red;
+  font-size: calc(1.325rem + .9vw);
+}
+
+/* Условие №2 */
+/* После расчета стилизация появляется (Активный класс) */
+.outputActiveTwoImg {
+  min-width: 75px;
+  min-height: 75px;
+  background-image: url('/5_img/5_5_dailyCalculatorImg/requirement_2/iconPast.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.outputActiveTwo {
+  min-width: 200px;
+  min-height: 75px;
+  padding: 1rem;
+  border: 2px solid #C71585;
+  border-radius: 2rem;
+  color: #C71585;
+  font-size: calc(1.325rem + .9vw);
+}
+
+/* Условие №2 */
+/* После расчета стилизация появляется (Активный класс) */
+.outputActiveThreeImg {
+  min-width: 75px;
+  min-height: 75px;
+  background-image: url('/5_img/5_5_dailyCalculatorImg/requirement_3/iconFuture.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.outputActiveThree {
+  min-width: 200px;
+  min-height: 75px;
+  padding: 1rem;
+  border: 2px solid #0000CD;
+  border-radius: 2rem;
+  color: #0000CD;
+  font-size: calc(1.325rem + .9vw);
+}
+
+/* Условие №3 */
+/* После расчета стилизация появляется (Активный класс) */
+.outputActiveFour {
+  min-width: 200px;
+  min-height: 75px;
+  padding: 1rem;
+  color: #157347;
+  font-size: calc(1.325rem + .9vw);
+  font-weight: 900;
+}
+
+
+/*------------Форма появляется после вычисления (Вычислитель даты) ------------*/
+/*До расчета, стилизация отсутсвует (Неактивный класс)*/
+.outputInactiveDay {
+  opacity: 0;
+}
+
+/* После расчета стилизация появляется (Активный класс) */
+.outputActiveDay {
+  padding-top: 45px;
+  align-self: center;
+  transition: all 0.2s ease;
+  transform: rotateX(5deg) rotateZ(5deg);
+  font-family: Impact, sans-serif;
+  font-size: calc(1.325rem + .9vw);
+  letter-spacing: 0.5px;
+  color: #f5f5f5;
+  text-shadow: white 0.006em 0.006em 0.007em, #9c9c9c 1px 1px 1px, #9c9c9c 1px 2px 1px, #9c9c9c 1px 3px 1px, #9c9c9c 1px 4px 1px, #9c9c9c 1px 5px 1px, #9c9c9c 1px 6px 1px, #9c9c9c 1px 7px 1px, #9c9c9c 1px 8px 1px, #9c9c9c 1px 9px 1px, #9c9c9c 1px 10px 1px, #9c9c9c 1px 11px 1px, #9c9c9c 1px 12px 1px, rgba(16, 16, 16, 0.4) 1px 18px 6px, rgba(16, 16, 16, 0.2) 1px 22px 10px, rgba(16, 16, 16, 0.2) 1px 26px 35px, rgba(16, 16, 16, 0.4) 1px 30px 65px;
+}
+
+/*------------Форма появляется после вычисления (Вычислитель года) ------------*/
+/*До расчета, стилизация отсутсвует (Неактивный класс)*/
+.outputInactiveYear {
+  opacity: 0;
+}
+
+/* После расчета стилизация появляется (Активный класс) */
+.outputActiveYearYes {
+  align-self: center;
+  transition: all 0.2s ease;
+  transform: rotateX(5deg) rotateZ(-5deg);
+  font-family: Impact, sans-serif;
+  font-size: calc(1.325rem + .9vw);
+  letter-spacing: 0.5px;
+  color: #af3131;
+  text-shadow: white 0.006em 0.006em 0.007em, #9c9c9c 1px 1px 1px, #9c9c9c 1px 2px 1px, #9c9c9c 1px 3px 1px, #9c9c9c 1px 4px 1px, #9c9c9c 1px 5px 1px, #9c9c9c 1px 6px 1px, #9c9c9c 1px 7px 1px, #9c9c9c 1px 8px 1px, #9c9c9c 1px 9px 1px, #9c9c9c 1px 10px 1px, #9c9c9c 1px 11px 1px, #9c9c9c 1px 12px 1px, rgba(16, 16, 16, 0.4) 1px 18px 6px, rgba(16, 16, 16, 0.2) 1px 22px 10px, rgba(16, 16, 16, 0.2) 1px 26px 35px, rgba(16, 16, 16, 0.4) 1px 30px 65px;
+}
+
+.outputActiveYearNo {
+  align-self: center;
+  transition: all 0.2s ease;
+  transform: rotateX(5deg) rotateZ(-5deg);
+  font-family: Impact, sans-serif;
+  font-size: calc(1.325rem + .9vw);
+  letter-spacing: 0.5px;
+  color: #0a7439;
+  text-shadow: white 0.006em 0.006em 0.007em, #9c9c9c 1px 1px 1px, #9c9c9c 1px 2px 1px, #9c9c9c 1px 3px 1px, #9c9c9c 1px 4px 1px, #9c9c9c 1px 5px 1px, #9c9c9c 1px 6px 1px, #9c9c9c 1px 7px 1px, #9c9c9c 1px 8px 1px, #9c9c9c 1px 9px 1px, #9c9c9c 1px 10px 1px, #9c9c9c 1px 11px 1px, #9c9c9c 1px 12px 1px, rgba(16, 16, 16, 0.4) 1px 18px 6px, rgba(16, 16, 16, 0.2) 1px 22px 10px, rgba(16, 16, 16, 0.2) 1px 26px 35px, rgba(16, 16, 16, 0.4) 1px 30px 65px;
+}

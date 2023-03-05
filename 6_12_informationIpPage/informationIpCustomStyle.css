@@ -1,0 +1,91 @@
+h4 {
+  margin-top: 8px;
+}
+
+
+
+/*-----SectionOne---------------------------------------------------------------------------*/
+
+.section-one {
+  /* центрируем*/
+  display: flex;
+  justify-content: space-around;
+  background-color: #23282B;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  min-height: 350px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  color: #44944A;
+  width: 75%;
+  max-width: 1600px;
+  padding: 0;
+  margin: 20px auto;
+}
+
+.content {
+  margin-bottom: 8px;
+}
+
+.content__input {
+  width: 200px;
+  background-color: black;
+  border: 1px solid #44944A;
+  border-radius: 4px;
+  color: #44944A;
+  /* убираем обводку при нажатии */
+  outline: none;
+}
+
+.content__input:hover,
+.content__button:hover {
+  border: 2px solid #44944A;
+}
+
+/* изменяем цвет шрифта при выделении текста */
+.content__input::selection {
+  background-color: yellowgreen;
+}
+
+.content__button {
+  background-color: black;
+  border: 1px solid #44944A;
+  border-radius: 4px;
+  color: #44944A;
+  margin: 8px;
+}
+
+::placeholder {
+  color: #44944A;
+}
+
+.content__table {
+  display: flex;
+  margin-top: 8px;
+}
+
+/*-----------------------------------------------------*/
+
+@media (max-width: 750px) {
+  h4 {
+    font-size: 130%;
+  }
+
+  .section-one {
+    display: block;
+  }
+
+  .container {
+    display: block;
+    padding: 5px;
+    margin: 2px;
+    font-size: 66%;
+    white-space: wrap;
+  }
+
+  .content__button {
+    margin: 8px 0px;
+  }
+}

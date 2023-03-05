@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="/2_normalize/normalize.css">
+  <link rel="stylesheet" href="/3_textStyles/textStyle.css">
+  <!-- Bootstrap-styles -->
+  <link rel="stylesheet" href="/1_bootstrap-5.2.0-dist/css/bootstrap.min.css">
+  <!-- Сustom-styles -->
+  <link rel="stylesheet" href="/6_13_entrance/entranceStyle.css">
+  <!-- Bootstrap-script (jquery, popper)-->
+  <script defer src="/1_bootstrap-5.2.0-dist/js/jquery-3.6.0.min.js"></script>
+  <script defer src="/1_bootstrap-5.2.0-dist/js/popper.min.js"></script>
+  <!-- Bootstrap-script -->
+  <script defer src="/1_bootstrap-5.2.0-dist/js/bootstrap.min.js"></script>
+  <!-- Entrance-script -->
+  <script defer src="/6_13_entrance/entranceScript.js"></script>
+  
+  <title>Авторизация</title>
+</head>
+
+<body>
+  <form>
+    <div class="logo__header">
+      <img src="/5_img/5_0_mainImg/header/logo.png" height="50" alt="">
+      <h4>Вход в мульти вычислители</h4>
+      <h5>Заполните поля</h5>
+    </div>
+    <div class="mb-3">
+      <!-- autocomplete="off" - Отключает автозаполнение - что было введено раньше-->
+      <input id="inputEmail1" type="email" class="form-control" autocomplete="off" placeholder="Адрес эл.почты">
+    </div>
+    <div class="mb-3">
+      <input id="inputPassword1" type="password" class="form-control" autocomplete="off" placeholder="Пароль">
+    </div>
+    <div class="mb-3 form-check">
+      <input id="inputCheck1" type="checkbox" class="form-check-input">
+      <label class="form-check-label" for="inputCheck1">Я не робот</label>
+    </div>
+    <button id="entryButton" type="button" class="btn btn-primary">Войти</button>
+    <h6>Вычислители помогают автоматизировать бытовые домашние расчеты и немного развлечься</h6>
+  </form>
+</body>
+</html>

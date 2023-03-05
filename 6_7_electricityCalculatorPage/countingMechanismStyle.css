@@ -1,0 +1,80 @@
+html {
+  font-size: 16px;
+}
+
+/* Используем rem - для адаптивной верстки */
+/* После того как мы установили - (html {font-size: 16px;}), 
+мы получили такое соотношение (1rem = 16px)!!!*/
+
+/*_________________Т1_________________________________________*/
+/*_________________Т2_________________________________________*/
+/*_________________Т3_________________________________________*/
+
+.electric-meter__borderT1 {
+  border: 12px solid #FFCF48;
+}
+
+.electric-meter__borderT2 {
+  border: 12px solid #293133;
+}
+
+.electric-meter__borderT3 {
+  border: 12px solid #75bbfd;
+}
+
+.backgroundT1 {
+  background-color: #FFCF48;
+}
+
+.backgroundT2 {
+  background-color: #293133;
+}
+
+.backgroundT3 {
+  background-color: #75bbfd;
+}
+
+
+.electric-meter__counting-mechanismT1,
+.electric-meter__counting-mechanismT2,
+.electric-meter__counting-mechanismT3 {
+  display: flex;
+  /* Обнуляем значение отступов */
+  margin: 0;
+  /* Значение полей */
+  padding: 0px;
+  font-size: 0.9rem;
+}
+
+.electric-meter__counter-elemT1,
+.electric-meter__counter-elemT2,
+.electric-meter__counter-elemT3 {
+  /* Отображать как строчный элемент */
+  display: inline;
+  min-width: 1.45rem;
+  padding: 0.25rem 0.2rem;
+  color: white;
+  font-weight: 500;
+  border-right: 1px solid black;
+}
+
+.elem-li-8 {
+  border-right: none;
+}
+
+
+.electric-meter__units-textT1,
+.electric-meter__tariff-textT1,
+.electric-meter__units-textT2,
+.electric-meter__tariff-textT2,
+.electric-meter__units-textT3,
+.electric-meter__tariff-textT3 {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+
+.electric-meter__currentT1 {
+  display: flex;
+  margin: 0;
+}

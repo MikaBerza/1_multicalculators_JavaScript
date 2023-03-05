@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="/2_normalize/normalize.css">
+  <link rel="stylesheet" href="/3_textStyles/textStyle.css">
+  <!-- Bootstrap-styles -->
+  <link rel="stylesheet" href="/1_bootstrap-5.2.0-dist/css/bootstrap.min.css">
+
+  <!-- Сustom-styles -->
+  <link rel="stylesheet" href="/6_4_mortgageCalculatorPage/mortgageCalculatorCustomStyle.css">
+  <link rel="stylesheet" href="/7_headerAndFooterCustomStyle/headerAndFooterCustomStyle.css">
+
+  <script defer src="/1_bootstrap-5.2.0-dist/js/jquery-3.6.0.min.js"></script>
+  <script defer src="/1_bootstrap-5.2.0-dist/js/popper.min.js"></script>
+  <!-- Bootstrap-script -->
+  <script defer src="/1_bootstrap-5.2.0-dist/js/bootstrap.min.js"></script>
+  <!-- linksMultiCalculators-script -->
+  <script defer src="/8_linksMultiCalculators/linksHeaderMultiCalculators.js"></script>
+  <!-- mortgageCalculator - script -->
+  <script defer src="/6_4_mortgageCalculatorPage/mortgageCalculatorScript.js"></script>
+
+
+
+
+  <title>Ипотечный - калькулятор</title>
+</head>
+
+<body>
+  <!-----HEADER--------------------------------------------------------------------------->
+  <header>
+    <nav class="navbar navbar-expand-lg bg-light">
+      <div class="container-xxl">
+        <a id="main__page" class="navbar-brand " href="#">
+          <img src="/5_img/5_0_mainImg/header/logo.png" height="60" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Переключатель навигации">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                Мульти вычислители
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li><a id="header__borsch" class="dropdown-item" href="">Борщ - расчет ингридиентов</a></li>
+                <li><a id="header__pancake" class="dropdown-item" href="">Блины - расчет ингридиентов</a></li>
+                <li><a id="header__pilaf" class="dropdown-item" href="">Плов - расчет ингридиентов</a></li>
+                <li><a id="header__mortgage" class="dropdown-item" href="">Ипотечный - калькулятор</a></li>
+                <li><a id="header__day" class="dropdown-item" href="">Дневной - калькулятор</a></li>
+                <li><a id="header__factsCats" class="dropdown-item" href="">Факты о котах</a></li>
+                <li><a id="header__energy" class="dropdown-item" href="">Калькулятор стоимости электроэнергии</a></li>
+                <li><a id="header__coldWater" class="dropdown-item" href="">Калькулятор стоимости холодной воды</a></li>
+                <li><a id="header__todoList" class="dropdown-item" href="">Ежедневный список дел</a></li>
+                <li><a id="header__password" class="dropdown-item" href="">Генератор паролей</a></li>
+                <li><a id="header__notepad" class="dropdown-item" href="">Блокнот</a></li>
+                <li><a id="header__informationIp" class="dropdown-item" href="">Информация об IP</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-----SectionOne--------------------------------------------------------------------------->
+    <section class="section-one">
+      <div class="container text-center">
+        <div class="row align-items-start">
+          <div class="col">
+            <h2>Ипотечный - калькулятор</h2>
+            <!--Описание---------------------------------------------------------->
+            <h5 class="description">
+              Позволяет рассчитать аннуитетный способ погашения ипотечного кредита.
+              При аннуитетном способе погашения, вы каждый месяц должны вносить одну
+              и ту же сумму, которая включает часть тела кредита и часть процентов по нему.
+              Это удобно при планировании бюджета и снижает требования к ежемесячному
+              доходу заемщика.
+            </h5>
+            <h6 class="description">
+              Выберите &#128505; по какой % ставке будете производить расчет!
+            </h6>
+            <!-- Флажки---------------------------------------------------------->
+            <div class="form-check-flag margins-from-elements">
+              <div class="check-flag">
+                <input type="checkbox" class="form-check-flag-input" value="" id="inputCheckFlagBank">
+                <label class="form-check-flag-label" for="inputCheckFlagBank">
+                  Банковская годовая % ставка
+                </label>
+              </div>
+              <div class="check-flag">
+                <input type="checkbox" class="form-check-flag-input" value="" id="inputCheckFlagOwn">
+                <label class="form-check-flag-label" for="inputCheckFlagOwn">
+                  Собственная годовая % ставка
+                </label>
+              </div>
+            </div>
+            <!-- Диапазон - One - Собственная процентная ставка-------------------------->
+            <div class="real-estate-price-range margins-from-elements">
+              <label class="form-label-text">Собственная годовая % ставка</label>
+              <label id="labelCheckRangeOwn" class="form-label-number" data-valuelabel="5">5</label>
+              <input type="range" class="form-range" value="5" min="0" max="100" step="1" id="inputCheckRangeOwn"
+                data-valueinput="5">
+              <div class="price-footer">
+                <label class="form-label-number-footer">от 0 %</label>
+                <label class="form-label-number-footer">до 100 %</label>
+              </div>
+            </div>
+            <!-- Выпадающий список---------------------------------------------------------->
+            <select id="dropDownList" class="form-select margins-from-elements">
+              <option value="6.7">Квартира на первичном рынке от 6,7%</option>
+              <option value="9.6">Квартира на вторичном рынке от 9,6%</option>
+              <option value="7.2">Дом от 7,2%</option>
+              <option value="5.3">Таунхаус от 5,3%</option>
+            </select>
+            <!-- Переключатели---------------------------------------------------------->
+            <h5 class="description">Услуги, снижающие ставку по кредиту</h5>
+            <div class="switches margins-from-elements">
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="bankCard__inputFlagSwitch" value="1">
+                <label class="form-check-label-centre" id="bankCard__textPercent">-1%</label>
+                <!-- приравниваю атрибут for (элемента label) к id атрибуту (элемента input), чтобы
+              кликом по тексту срабатывал переключатель флажка-->
+                <label class="form-check-label" for="bankCard__inputFlagSwitch">Зарплатный клиент банка</label>
+              </div>
+            </div>
+            <div class="switches margins-from-elements">
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="income__inputFlagSwitch" value="0.8">
+                <label class="form-check-label-centre" id="income__textPercent">-0.8%</label>
+                <!-- приравниваю атрибут for (элемента label) к id атрибуту (элемента input), чтобы
+              кликом по тексту срабатывал переключатель флажка-->
+                <label class="form-check-label" for="income__inputFlagSwitch">Подтвердить доход</label>
+              </div>
+            </div>
+            <div class="switches margins-from-elements">
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="lifeInsurance__inputFlagSwitch"
+                  value="0.5">
+                <label class="form-check-label-centre" id="lifeInsurance__textPercent">-0.5%</label>
+                <!-- приравниваю атрибут for (элемента label) к id атрибуту (элемента input), чтобы
+              кликом по тексту срабатывал переключатель флажка-->
+                <label class="form-check-label" for="lifeInsurance__inputFlagSwitch">Страхование жизни</label>
+              </div>
+            </div>
+            <div class="switches margins-from-elements">
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch"
+                  id="electronicRegistration__inputFlagSwitch" value="0.3">
+                <label class="form-check-label-centre" id="electronicRegistration__textPercent">-0.3%</label>
+                <!-- приравниваю атрибут for (элемента label) к id атрибуту (элемента input), чтобы
+              кликом по тексту срабатывал переключатель флажка-->
+                <label class="form-check-label" for="electronicRegistration__inputFlagSwitch">Электронная
+                  регистрация</label>
+              </div>
+            </div>
+            <!-- Диапазоны - Two, Three, Four, Five---------------------------------------------------------->
+            <!-- placeholder - подсказывающий текст в inpute -->
+            <div class="real-estate-price-range margins-from-elements">
+              <label class="form-label-text">Стоимость недвижимости</label>
+              <label id="labelTheCostOfRealEstate" class="form-label-number" data-valuelabel="1 000 000">1 000
+                000</label>
+              <input type="range" class="form-range" value="1000000" min="1000000" max="30000000" step="100000"
+                id="inputTheCostOfRealEstate" data-valueinput="1000000">
+              <div class="price-footer">
+                <label class="form-label-number-footer">от 1млн. ₽</label>
+                <label class="form-label-number-footer">до 30 млн. ₽</label>
+              </div>
+            </div>
+            <!-- Пока неактивен!!! -->
+            <!-- <div class="real-estate-price-range margins-from-elements">
+            <label class="form-label-text">Стоимость земельного участка</label>
+            <label id="labelLandPlote" class="form-label-number">500 000</label>
+            <input type="range" class="form-range" value="500000" min="500000" max="50000000" step="1" id="inputLandPlote">
+            <div class="price-footer">
+              <label class="form-label-number-footer">от 500 тыс. ₽</label>
+              <label class="form-label-number-footer">до 50 млн. ₽</label>
+            </div>
+          </div> -->
+            <div class="real-estate-price-range margins-from-elements">
+              <label class="form-label-text">Первоначальный взнос</label>
+              <label id="labelInitialPayment" class="form-label-number" data-valuelabel="300 000">300 000</label>
+              <input type="range" class="form-range" value="300000" min="300000" max="30000000" step="50000"
+                id="inputInitialPayment" data-valueinput="300000">
+              <div class="price-footer">
+                <label class="form-label-number-footer">от 300 тыс. ₽</label>
+                <label class="form-label-number-footer">до 30 млн. ₽</label>
+              </div>
+            </div>
+            <div class="real-estate-price-range margins-from-elements">
+              <label class="form-label-text">Срок кредита</label>
+              <label id="labelLoanTerm" class="form-label-number" data-valuelabel="1">1</label>
+              <input type="range" class="form-range" value="1" min="1" max="30" step="1" id="inputLoanTerm"
+                data-valueinput="1">
+              <div class="price-footer">
+                <label class="form-label-number-footer">от 1 г.</label>
+                <label class="form-label-number-footer">до 30 лет</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Колонка вывода результатов и рекламы---------------------------------------------------------->
+          <!--класс колонки со специальной контрольной точкой col-md-4,
+        после которой правая колонка смещается под левую колонку-->
+          <div class="col-md-4">
+            <img class="advertisement-icon-logo" src="/5_img/5_4_mortgageCalculatorImg/U_S_Bancorp_icon.png" alt="">
+            <!--Колонки под иконкой USbank-->
+            <div class="container text-center">
+              <div class="row">
+                <div class="col">
+                  <!-- Создадим пользовательский атрибут data-value-->
+                  <span class="col__text-span">Сумма ₽ кредита</span>
+                  <p id="outputLoanAmount" class="col__number" data-value="700 000">700 000</p>
+                </div>
+                <div class="col">
+                  <span class="col__text-span">Годовая % ставка</span>
+                  <p id="outputAnnualInterestRate" class="col__number" data-value="5">5</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <span class="col__text-span">Месячный ₽ платеж</span>
+                  <p id="outputMonthlyPayment" class="col__number" data-value="59 925.237">59 925.237</p>
+                </div>
+                <div class="col">
+                  <span class="col__text-span">Месячная % ставка</span>
+                  <p id="outputMonthlyInterestRate" class="col__number" data-value="0.0042">0.0042</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <span class="col__text-span">Сумма ₽ на погашение процентов %</span>
+                  <p id="outputInterestRepaymentAmount" class="col__number" data-value="2 916.667"
+                    title="Сумма, которая идёт на погашение процентов по кредиту">2 916.667</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <span class="col__text-span">Сумма ₽ на погашение тела кредита</span>
+                  <p id="outputLoanBodyAmount" class="col__number" data-value="57 008.571"
+                    title="Сумма, которая идёт на погашение тела кредита">57 008.571</p>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <img src="/5_img/5_4_mortgageCalculatorImg/mobailCart.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <p class="card-text">Банк США запускает первый в стране голосовой
+                  помощник банковских операций на русском языке</p>
+                <p class="card-text">Мы делаем все проще и проще для наших русскоговорящих
+                  клиентов осуществлять банковские операции в цифровом формате</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-----Footer--------------------------------------------------------------------------->
+  <footer id="footer" class="text-center text-lg-start bg-light text-muted">
+    <!-- Section: Social media -->
+    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom container-xxl">
+      <!-- Left -->
+      <div>
+        <div style="padding-bottom: 15px;">
+          Cоциальные сети:
+        </div>
+        <a href="https://www.whatsapp.com/" target="_blank" class="me-4 text-reset"><img class="footerIcon"
+            src="/5_img/5_0_mainImg/Footer/iconWhatsapp.png" alt=""></a>
+        <a href="https://web.telegram.org/k/" target="_blank" class="me-4 text-reset"><img class="footerIcon"
+            src="/5_img/5_0_mainImg/Footer/iconTelegram.png" alt=""></a>
+        <a href="https://instagram-my.ru" target="_blank" class="me-4 text-reset"><img class="footerIcon"
+            src="/5_img/5_0_mainImg/Footer/iconInstagram.png" alt=""></a>
+        <a href="https://www.tiktok.com/" target="_blank" class="me-4 text-reset"><img class="footerIcon"
+            src="/5_img/5_0_mainImg/Footer/iconsTikTok.png" alt=""></a>
+        <a href="https://github.com/" target="_blank" class="me-4 text-reset"><img class="footerIconGit"
+            src="/5_img/5_0_mainImg/Footer/iconsGithub.png" alt=""></a>
+      </div>
+      <!-- Left -->
+    </section>
+    <!-- Section: Social media -->
+
+    <!-- Section: Links  -->
+    <section class="">
+      <div class="container-xxl text-center text-md-start mt-5">
+        <!-- Grid row -->
+        <div class="row mt-3">
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <!-- Content -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              <i class="#"></i>Проектирование сайтов
+            </h6>
+            <p>
+              Эскизный проект
+            </p>
+            <p>
+              Дизайнерские решения
+            </p>
+            <p>
+              Верстка сайта
+            </p>
+            <p>
+              Программная часть
+            </p>
+            <p>
+              Наполнение контентом и тестирование
+            </p>
+            <p>
+              Выпуск
+            </p>
+
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Инструменты
+            </h6>
+            <p>
+              <a href="https://balsamiq.com/wireframes/" target="_blank" class="text-reset">BalsamiqMockups</a>
+            </p>
+            <p>
+              <a href="https://www.figma.com/files/recent?fuid=1114807420115018183" target="_blank"
+                class="text-reset">Figma</a>
+            </p>
+            <p>
+              <a href="http://htmlbook.ru/" target="_blank" class="text-reset">HTML && CSS</a>
+            </p>
+            <p>
+              <a href="https://262.ecma-international.org/" target="_blank" class="text-reset">JavaScript</a>
+            </p>
+            <p>
+              <a href="https://browsershots.org/" target="_blank" class="text-reset">internet && Browsershots</a>
+            </p>
+            <p>
+              Передача заказчику
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Контакты
+            </h6>
+            <p>
+              <a href="https://yandex.ru/maps/14/tver/geo/naberezhnaya_stepana_razina/8001632/?ll=35.920722%2C56.859018&z=16"
+                target="_blank" class="text-reset fas fa-home me-3">Тверь, набережная Степана Разина</a>
+            </p>
+            <p>
+              <a href="https://yandex.ru/maps/213/moscow/geo/nizhnyaya_krasnoselskaya_ulitsa/10049867/?ll=37.671112%2C55.776001&z=16"
+                target="_blank" class="text-reset fas fa-home me-3">Москва, Нижняя Красносельская</a>
+            </p>
+            <p>
+              <a href="mailto:e.mail.ru" class="text-reset fas fa-home me-3">TverwebsiteDesign01@mail.ru</a>
+            </p>
+            <p>
+              <a href="mailto:e.mail.ru" class="text-reset fas fa-home me-3">MscwebsiteDesign01@mail.ru</a>
+            </p>
+            <p>
+              <a href="tel:+79874565432" class="text-reset fas fa-home me-3">+7 958 456 54-32 Tver</a>
+            </p>
+            <p>
+              <a href="tel:+79874565432" class="text-reset fas fa-home me-3">+7 999 456 54-32 Msc</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+      </div>
+    </section>
+    <!-- Section: Links  -->
+
+    <!-- Copyright -->
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+      © 2022 Copyright:
+      <a class="text-reset fw-bold" href="#!">WebsiteDesign.ru</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+</body>
+
+
+
+</html>

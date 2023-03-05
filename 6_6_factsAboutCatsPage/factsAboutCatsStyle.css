@@ -1,0 +1,61 @@
+/* Согласно спецификации CSS ширина блока складывается из ширины контента (width), 
+значений отступов (margin), полей (padding) и границ (border). 
+Аналогично обстоит и с высотой блока. Свойство box-sizing позволяет 
+изменить этот алгоритм, чтобы свойства width и height задавали 
+размеры не контента, а размеры блока. */
+
+/* CSS-переменные */
+:root {
+  --image-height: 600px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #EDEEF0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  margin: 5% auto;
+
+}
+
+.card {
+  padding: 1%;
+  width: 40%;
+  vertical-align: middle;
+
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 5px 5px 15px gray;
+
+  /* СSS - функция */
+  height: calc(var(--image-height) * 1.4);
+}
+
+.card__header {
+  text-align: center;
+}
+
+.card__fact {
+  text-align: center;
+  font-size: 110%;
+  font-weight: 400;
+}
+
+.card__img {
+  border-radius: 10px;
+  width: 100%;
+  max-height: var(--image-height);
+  /* max-height: 600px; */
+  cursor: pointer;
+  margin-top: 2%;
+}

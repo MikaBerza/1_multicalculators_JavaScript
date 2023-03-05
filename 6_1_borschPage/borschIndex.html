@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="/2_normalize/normalize.css">
+  <link rel="stylesheet" href="/3_textStyles/textStyle.css">
+  <!-- Bootstrap-styles -->
+  <link rel="stylesheet" href="/1_bootstrap-5.2.0-dist/css/bootstrap.min.css">
+  <!-- Сustom-styles -->
+  <link rel="stylesheet" href="/6_1_borschPage/productsCustomStyle.css">
+  <link rel="stylesheet" href="/6_1_borschPage/borschCustomStyle.css">
+  <link rel="stylesheet" href="/7_headerAndFooterCustomStyle/headerAndFooterCustomStyle.css">
+
+  <script defer src="/1_bootstrap-5.2.0-dist/js/jquery-3.6.0.min.js"></script>
+  <script defer src="/1_bootstrap-5.2.0-dist/js/popper.min.js"></script>
+  <!-- Bootstrap-script -->
+  <script defer src="/1_bootstrap-5.2.0-dist/js/bootstrap.min.js"></script>
+  <!-- linksMultiCalculators-script -->
+  <script defer src="/8_linksMultiCalculators/linksHeaderMultiCalculators.js"></script>
+  <!-- Calculator-script -->
+  <script type="module" defer src="/6_1_borschPage/borschScript.js"></script>
+
+
+  <title>Борщ - расчет ингридиентов</title>
+</head>
+
+<body>
+  <!-----HEADER--------------------------------------------------------------------------->
+  <header>
+    <nav class="navbar navbar-expand-lg bg-light">
+      <div class="container-xxl">
+        <a id="main__page" class="navbar-brand " href="#">
+          <img src="/5_img/5_0_mainImg/header/logo.png" height="60" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Переключатель навигации">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                Мульти вычислители
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li><a id="header__borsch" class="dropdown-item" href="">Борщ - расчет ингридиентов</a></li>
+                <li><a id="header__pancake" class="dropdown-item" href="">Блины - расчет ингридиентов</a></li>
+                <li><a id="header__pilaf" class="dropdown-item" href="">Плов - расчет ингридиентов</a></li>
+                <li><a id="header__mortgage" class="dropdown-item" href="">Ипотечный - калькулятор</a></li>
+                <li><a id="header__day" class="dropdown-item" href="">Дневной - калькулятор</a></li>
+                <li><a id="header__factsCats" class="dropdown-item" href="">Факты о котах</a></li>
+                <li><a id="header__energy" class="dropdown-item" href="">Калькулятор стоимости электроэнергии</a></li>
+                <li><a id="header__coldWater" class="dropdown-item" href="">Калькулятор стоимости холодной воды</a></li>
+                <li><a id="header__todoList" class="dropdown-item" href="">Ежедневный список дел</a></li>
+                <li><a id="header__password" class="dropdown-item" href="">Генератор паролей</a></li>
+                <li><a id="header__notepad" class="dropdown-item" href="">Блокнот</a></li>
+                <li><a id="header__informationIp" class="dropdown-item" href="">Информация об IP</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-----SectionOne--------------------------------------------------------------------------->
+    <section class="section-one">
+      <div class="container-xxl">
+        <h2 class="card-title"><a name="high-speed-click"></a>Борщ - расчет ингридиентов</h2>
+      </div>
+      <div class="container-xxl">
+        <h4 class="h4__item">
+          В старину борщом называли похлёбку из борщевика. Позже борщ готовили на свекольном квасе: его
+          разбавляли водой, смесь заливали в глиняный горшок или чугунок и доводили до кипения. В кипяток
+          клали нарезанную свёклу, капусту, морковь и другие овощи и ставили горшок в печь. Сваренный
+          борщ солили и заправляли.
+        </h4>
+      </div>
+      <!--Адаптивная таблица (.table-responsive) для горизонтальной прокрутки таблиц-->
+      <div class="container-xxl table-responsive">
+        <table class="table table-bordered table-product">
+          <thead>
+            <tr>
+              <th scope="row">Введите количество порций</th>
+              <td><input type="number" id="idProductInput" value="0"></td>
+            </tr>
+          </thead>
+        </table>
+        <div class="btnBlock-section-one">
+          <button id="btnProduct" class="btn btn-success btn__itemOne" type="button">Рассчитать</button>
+        </div>
+        <table class="table table-bordered table-product">
+          <thead>
+            <tr>
+              <th class="table-heading" scope="col">№ поз.</th>
+              <th class="table-heading" scope="col">Продукты</th>
+              <th class="table-heading" scope="col">Количество</th>
+              <th class="table-heading" scope="col">Ед. изм.</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th class="table-num-position" scope="row">1</th>
+              <td class="table-products">Говядина</td>
+              <td class="table-quantity">0</td>
+              <td class="table-unit">г</td>
+            </tr>
+            <tr>
+              <th class="table-num-position" scope="row">2</th>
+              <td class="table-products">Картофель</td>
+              <td class="table-quantity">0</td>
+              <td class="table-unit">г</td>
+            </tr>
+            <tr>
+              <th class="table-num-position" scope="row">3</th>
+              <td class="table-products">Капуста белокочанная</td>
+              <td class="table-quantity">0</td>
+              <td class="table-unit">г</td>
+            </tr>
+            <tr>
+              <th class="table-num-position" scope="row">4</th>
+              <td class="table-products">Свекла</td>
+              <td class="table-quantity">0</td>
+              <td class="table-unit">г</td>
+            </tr>
+            <tr>
+              <th class="table-num-position" scope="row">5</th>
+              <td class="table-products">Морковь</td>
+              <td class="table-quantity">0</td>
+              <td class="table-unit">г</td>
+            </tr>
+            <tr>
+              <th class="table-num-position" scope="row">6</th>
+              <td class="table-products">Лук репчатый</td>
+              <td class="table-quantity">0</td>
+              <td class="table-unit">шт</td>
+            </tr>
+            <tr>
+              <th class="table-num-position" scope="row">7</th>
+              <td class="table-products">Чернослив</td>
+              <td class="table-quantity">0</td>
+              <td class="table-unit">шт</td>
+            </tr>
+            <tr>
+              <th class="table-num-position" scope="row">8</th>
+              <td class="table-products">Зелень петрушки</td>
+              <td class="table-quantity">0</td>
+              <td class="table-unit">пуч</td>
+            </tr>
+            <tr>
+              <th class="table-num-position" scope="row">9</th>
+              <td class="table-products">Томат паста</td>
+              <td class="table-quantity">0</td>
+              <td class="table-unit">ст.л</td>
+            </tr>
+            <tr>
+              <th class="table-num-position" scope="row">10</th>
+              <td class="table-products">Соль</td>
+              <td class="table-quantity" id="salt">0</td>
+              <td class="table-unit">ст.л</td>
+            </tr>
+            <tr>
+              <th class="table-num-position" scope="row">11</th>
+              <td class="table-products">Масло растительное</td>
+              <td class="table-quantity">0</td>
+              <td class="table-unit">ст.л</td>
+            </tr>
+            <tr>
+              <th class="table-num-position" scope="row">12</th>
+              <td class="table-products">Вода</td>
+              <td class="table-quantity">0</td>
+              <td class="table-unit">л</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <!-----Footer--------------------------------------------------------------------------->
+  <footer id="footer" class="text-center text-lg-start bg-light text-muted">
+    <!-- Section: Social media -->
+    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom container-xxl">
+      <!-- Left -->
+      <div>
+        <div style="padding-bottom: 15px;">
+          Cоциальные сети:
+        </div>
+        <a href="https://www.whatsapp.com/" target="_blank" class="me-4 text-reset"><img class="footerIcon"
+            src="/5_img/5_0_mainImg/Footer/iconWhatsapp.png" alt=""></a>
+        <a href="https://web.telegram.org/k/" target="_blank" class="me-4 text-reset"><img class="footerIcon"
+            src="/5_img/5_0_mainImg/Footer/iconTelegram.png" alt=""></a>
+        <a href="https://instagram-my.ru" target="_blank" class="me-4 text-reset"><img class="footerIcon"
+            src="/5_img/5_0_mainImg/Footer/iconInstagram.png" alt=""></a>
+        <a href="https://www.tiktok.com/" target="_blank" class="me-4 text-reset"><img class="footerIcon"
+            src="/5_img/5_0_mainImg/Footer/iconsTikTok.png" alt=""></a>
+        <a href="https://github.com/" target="_blank" class="me-4 text-reset"><img class="footerIconGit"
+            src="/5_img/5_0_mainImg/Footer/iconsGithub.png" alt=""></a>
+      </div>
+      <!-- Left -->
+    </section>
+    <!-- Section: Social media -->
+
+    <!-- Section: Links  -->
+    <section class="">
+      <div class="container-xxl text-center text-md-start mt-5">
+        <!-- Grid row -->
+        <div class="row mt-3">
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <!-- Content -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              <i class="#"></i>Проектирование сайтов
+            </h6>
+            <p>
+              Эскизный проект
+            </p>
+            <p>
+              Дизайнерские решения
+            </p>
+            <p>
+              Верстка сайта
+            </p>
+            <p>
+              Программная часть
+            </p>
+            <p>
+              Наполнение контентом и тестирование
+            </p>
+            <p>
+              Выпуск
+            </p>
+
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Инструменты
+            </h6>
+            <p>
+              <a href="https://balsamiq.com/wireframes/" target="_blank" class="text-reset">BalsamiqMockups</a>
+            </p>
+            <p>
+              <a href="https://www.figma.com/files/recent?fuid=1114807420115018183" target="_blank"
+                class="text-reset">Figma</a>
+            </p>
+            <p>
+              <a href="http://htmlbook.ru/" target="_blank" class="text-reset">HTML && CSS</a>
+            </p>
+            <p>
+              <a href="https://262.ecma-international.org/" target="_blank" class="text-reset">JavaScript</a>
+            </p>
+            <p>
+              <a href="https://browsershots.org/" target="_blank" class="text-reset">internet && Browsershots</a>
+            </p>
+            <p>
+              Передача заказчику
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Контакты
+            </h6>
+            <p>
+              <a href="https://yandex.ru/maps/14/tver/geo/naberezhnaya_stepana_razina/8001632/?ll=35.920722%2C56.859018&z=16"
+                target="_blank" class="text-reset fas fa-home me-3">Тверь, набережная Степана Разина</a>
+            </p>
+            <p>
+              <a href="https://yandex.ru/maps/213/moscow/geo/nizhnyaya_krasnoselskaya_ulitsa/10049867/?ll=37.671112%2C55.776001&z=16"
+                target="_blank" class="text-reset fas fa-home me-3">Москва, Нижняя Красносельская</a>
+            </p>
+            <p>
+              <a href="mailto:e.mail.ru" class="text-reset fas fa-home me-3">TverwebsiteDesign01@mail.ru</a>
+            </p>
+            <p>
+              <a href="mailto:e.mail.ru" class="text-reset fas fa-home me-3">MscwebsiteDesign01@mail.ru</a>
+            </p>
+            <p>
+              <a href="tel:+79874565432" class="text-reset fas fa-home me-3">+7 958 456 54-32 Tver</a>
+            </p>
+            <p>
+              <a href="tel:+79874565432" class="text-reset fas fa-home me-3">+7 999 456 54-32 Msc</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+      </div>
+    </section>
+    <!-- Section: Links  -->
+
+    <!-- Copyright -->
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+      © 2022 Copyright:
+      <a class="text-reset fw-bold" href="#!">WebsiteDesign.ru</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+
+
+</body>
+
+
+</html>

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="/2_normalize/normalize.css">
+  <link rel="stylesheet" href="/3_textStyles/textStyle.css">
+  <!-- Bootstrap-styles -->
+  <link rel="stylesheet" href="/1_bootstrap-5.2.0-dist/css/bootstrap.min.css">
+
+  <!-- Сustom-styles -->
+  <link rel="stylesheet" href="/6_7_electricityCalculatorPage/electricityCalculatorStyle.css">
+  <link rel="stylesheet" href="/6_7_electricityCalculatorPage/countingMechanismStyle.css">
+  <link rel="stylesheet" href="/7_headerAndFooterCustomStyle/headerAndFooterCustomStyle.css">
+
+  <script defer src="/1_bootstrap-5.2.0-dist/js/jquery-3.6.0.min.js"></script>
+  <script defer src="/1_bootstrap-5.2.0-dist/js/popper.min.js"></script>
+  <!-- Bootstrap-script -->
+  <script defer src="/1_bootstrap-5.2.0-dist/js/bootstrap.min.js"></script>
+  <!-- linksMultiCalculators-script -->
+  <script defer src="/8_linksMultiCalculators/linksHeaderMultiCalculators.js"></script>
+  <!-- waterCalculator-script -->
+  <script defer src="/6_7_electricityCalculatorPage/electricityCalculatorScript.js"></script>
+
+
+  <title>Калькулятор стоимости электроэнергии</title>
+</head>
+
+<body>
+  <!-----HEADER--------------------------------------------------------------------------->
+  <header>
+    <nav class="navbar navbar-expand-lg bg-light">
+      <div class="container-xxl">
+        <a id="main__page" class="navbar-brand " href="#">
+          <img src="/5_img/5_0_mainImg/header/logo.png" height="60" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Переключатель навигации">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                Мульти вычислители
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li><a id="header__borsch" class="dropdown-item" href="">Борщ - расчет ингридиентов</a></li>
+                <li><a id="header__pancake" class="dropdown-item" href="">Блины - расчет ингридиентов</a></li>
+                <li><a id="header__pilaf" class="dropdown-item" href="">Плов - расчет ингридиентов</a></li>
+                <li><a id="header__mortgage" class="dropdown-item" href="">Ипотечный - калькулятор</a></li>
+                <li><a id="header__day" class="dropdown-item" href="">Дневной - калькулятор</a></li>
+                <li><a id="header__factsCats" class="dropdown-item" href="">Факты о котах</a></li>
+                <li><a id="header__energy" class="dropdown-item" href="">Калькулятор стоимости электроэнергии</a></li>
+                <li><a id="header__coldWater" class="dropdown-item" href="">Калькулятор стоимости холодной воды</a></li>
+                <li><a id="header__todoList" class="dropdown-item" href="">Ежедневный список дел</a></li>
+                <li><a id="header__password" class="dropdown-item" href="">Генератор паролей</a></li>
+                <li><a id="header__notepad" class="dropdown-item" href="">Блокнот</a></li>
+                <li><a id="header__informationIp" class="dropdown-item" href="">Информация об IP</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+  <main>
+    <!-----SectionOne---------------------------------------------------------------------->
+    <section class="section-one">
+      <div class="container-one">
+        <!---Тариф Т1------------------------------------------------------------------------>
+        <div class="electric-meter electric-meter__borderT1">
+          <div class="electric-meter__header backgroundT1">
+            <span class="electric-meter__header-left">ЭНЕРГОМЕР&reg;</span>
+            <span class="electric-meter__header-centre">'''</span>
+            <span class="electric-meter__header-right">СЕ101__T1</span>
+          </div>
+          <!-- Текущие показания за месяц==================================-->
+          <div class="electric-meter__counting-element">
+            <div class="electric-meter__tariffT1">
+              <span class="electric-meter__tariff-textT1">Т1</span>
+            </div>
+            <ul id="listOfCurrentItemsT1" class="electric-meter__counting-mechanismT1 backgroundT1">
+              <li class="electric-meter__counter-elemT1">0</li>
+              <li class="electric-meter__counter-elemT1">0</li>
+              <li class="electric-meter__counter-elemT1">0</li>
+              <li class="electric-meter__counter-elemT1">0</li>
+              <li class="electric-meter__counter-elemT1">0</li>
+              <li class="electric-meter__counter-elemT1">0</li>
+              <li class="electric-meter__counter-elemT1">0</li>
+              <li class="electric-meter__counter-elemT1 elem-li-8">0</li>
+            </ul>
+            <div class="electric-meter__units-measurementT1">
+              <span class="electric-meter__units-textT1">kW*h</span>
+            </div>
+          </div>
+          <div class="electric-meter__currentT1">
+            <span style="font-size: 0.7rem;">Ввести текущие
+              показания за месяц</span>
+            <input id="inputCurrentT1" type="text" min="0" maxlength="8">
+          </div>
+          <!-- Предыдущие показания за месяц===============================-->
+          <div class="electric-meter__counting-element">
+            <div class="electric-meter__tariffT1">
+              <span class="electric-meter__tariff-textT1">Т1</span>
+            </div>
+            <ul id="listOfPreviousItemsT1" class="electric-meter__counting-mechanismT1 backgroundT1">
+              <li class="electric-meter__counter-elemT1">0</li>
+              <li class="electric-meter__counter-elemT1">0</li>
+              <li class="electric-meter__counter-elemT1">0</li>
+              <li class="electric-meter__counter-elemT1">0</li>
+              <li class="electric-meter__counter-elemT1">0</li>
+              <li class="electric-meter__counter-elemT1">0</li>
+              <li class="electric-meter__counter-elemT1">0</li>
+              <li class="electric-meter__counter-elemT1 elem-li-8">0</li>
+            </ul>
+            <div class="electric-meter__units-measurementT1">
+              <span class="electric-meter__units-textT1">kW*h</span>
+            </div>
+          </div>
+          <div class="electric-meter__currentT1">
+            <input id="inputPreviousT1" type="text" min="0" maxlength="8">
+            <span style="font-size: 0.7rem;">Ввести предыдущие
+              показания за месяц</span>
+          </div>
+          <div class="electric-meter__legend-panel">
+            <table class="electric-meter__table">
+              <thead>
+                <td class="electric-meter__td" colspan="5">
+                  ГОСТ Р 52320-2005 ГОСТ Р 52322-2005
+                </td>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="electric-meter__td">230V</td>
+                  <td class="electric-meter__td">5-60A</td>
+                  <td class="electric-meter__td">50Hz</td>
+                  <td class="electric-meter__td" colspan="2" rowspan="2">
+                    <div class="electric-meter__indicator">
+                      <!-- (зеленый кружок - &#128994;) -->
+                      <!-- (черный кружок - &#9899;) -->
+                      <span class="electric-meter__network">&#128994; СЕТЬ</span>
+                      <span class="electric-meter__amps">&#9899; A</span>
+                    </div>
+                    <div>
+                      <span>А=2000imp/kW*h</span>
+                    </div>
+                  </td>
+                </tr>
+                <tr colspan="3">
+                  <td class="electric-meter__td" colspan="3">
+                    <div class="electric-meter__conditional-characters">
+                      <span>&#9312;</span>
+                      <span>&#10696;</span>
+                      <span>&#10992;</span>
+                      <span>&#9734;</span>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="electric-meter__footer">
+            <img class="electric-meter__footer-mark-of-approval "
+              src="/5_img/5_7_electricityCalculatorImg/mark-of-approval.png" alt="">
+            <img class="electric-meter__footer-mark-of-conformity"
+              src="/5_img/5_7_electricityCalculatorImg/mark-of-conformity.png" alt="">
+            <img class="electric-meter__footer-barcode" src="/5_img/5_7_electricityCalculatorImg/barcode.jpg" alt="">
+            <span class="electric-meter__footer-text">Россия</span>
+          </div>
+        </div>
+
+        <!---Тариф Т2------------------------------------------------------------------------>
+        <!---Тариф Т3------------------------------------------------------------------------>
+      </div>
+
+      <div class="container-two">
+        <h2>Калькулятор расхода и стоимости электроэнергии</h2>
+        <div>
+          <h5>
+            Современная оплата электроэнергии расчитывается по трёхтарифной системе. Объясняется это
+            тем, что зная тариф на определённое время суток, жилец может подстроиться и
+            сэкономить на оплате за электроэнергию.
+            Значит, у Вас запрограммирован или стоит трёхтарифный счётчик электроэнергии.
+            На каждое время суток имеется своя плата. Разделяют сутки на три зоны.
+            Каждый временной интервал суток обозначается своей аббревиатурой.
+            Числа идут в киловаттах.
+            Т1-считается пиковым с наибольшей ценой для своего времени. Он отображает,
+            сколько набежало утром в период с 7:00 до 10:00.
+            И сколько набежало вечером с 17:00 до 21:00.
+            Т2-самым экономным, показывает сколько набежало в ночной период с 23:00 до 7:00 утра.
+            Т3-полупиковый тариф, показывает сколько набежало с 10:00 до 17:00 и с 21:00 до 23:00.
+
+            Чтобы верно расчитать показания, нужно узнать тарификацию для вашего региона.
+            1)Для этого следует взять все предыдущие данные - Т1, Т2, Т3.
+            2)Записать следует все настоящие показатели T1, T2, T3 для текущего месяца.
+            4)Вычесть из настоящих данных текущие для каждого показателя.
+            5)Затем результат каждого показателя перемножить на соответствующий тариф для этого показателя.
+            6)Последнее, складываем три полученных числа в кВт.
+          </h5>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-----Footer--------------------------------------------------------------------------->
+  <footer id="footer" class="text-center text-lg-start bg-light text-muted">
+    <!-- Section: Social media -->
+    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom container-xxl">
+      <!-- Left -->
+      <div>
+        <div style="padding-bottom: 15px;">
+          Cоциальные сети:
+        </div>
+        <a href="https://www.whatsapp.com/" target="_blank" class="me-4 text-reset"><img class="footerIcon"
+            src="/5_img/5_0_mainImg/Footer/iconWhatsapp.png" alt=""></a>
+        <a href="https://web.telegram.org/k/" target="_blank" class="me-4 text-reset"><img class="footerIcon"
+            src="/5_img/5_0_mainImg/Footer/iconTelegram.png" alt=""></a>
+        <a href="https://instagram-my.ru" target="_blank" class="me-4 text-reset"><img class="footerIcon"
+            src="/5_img/5_0_mainImg/Footer/iconInstagram.png" alt=""></a>
+        <a href="https://www.tiktok.com/" target="_blank" class="me-4 text-reset"><img class="footerIcon"
+            src="/5_img/5_0_mainImg/Footer/iconsTikTok.png" alt=""></a>
+        <a href="https://github.com/" target="_blank" class="me-4 text-reset"><img class="footerIconGit"
+            src="/5_img/5_0_mainImg/Footer/iconsGithub.png" alt=""></a>
+      </div>
+      <!-- Left -->
+    </section>
+    <!-- Section: Social media -->
+
+    <!-- Section: Links  -->
+    <section class="">
+      <div class="container-xxl text-center text-md-start mt-5">
+        <!-- Grid row -->
+        <div class="row mt-3">
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <!-- Content -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              <i class="#"></i>Проектирование сайтов
+            </h6>
+            <p>
+              Эскизный проект
+            </p>
+            <p>
+              Дизайнерские решения
+            </p>
+            <p>
+              Верстка сайта
+            </p>
+            <p>
+              Программная часть
+            </p>
+            <p>
+              Наполнение контентом и тестирование
+            </p>
+            <p>
+              Выпуск
+            </p>
+
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Инструменты
+            </h6>
+            <p>
+              <a href="https://balsamiq.com/wireframes/" target="_blank" class="text-reset">BalsamiqMockups</a>
+            </p>
+            <p>
+              <a href="https://www.figma.com/files/recent?fuid=1114807420115018183" target="_blank"
+                class="text-reset">Figma</a>
+            </p>
+            <p>
+              <a href="http://htmlbook.ru/" target="_blank" class="text-reset">HTML && CSS</a>
+            </p>
+            <p>
+              <a href="https://262.ecma-international.org/" target="_blank" class="text-reset">JavaScript</a>
+            </p>
+            <p>
+              <a href="https://browsershots.org/" target="_blank" class="text-reset">internet && Browsershots</a>
+            </p>
+            <p>
+              Передача заказчику
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Контакты
+            </h6>
+            <p>
+              <a href="https://yandex.ru/maps/14/tver/geo/naberezhnaya_stepana_razina/8001632/?ll=35.920722%2C56.859018&z=16"
+                target="_blank" class="text-reset fas fa-home me-3">Тверь, набережная Степана Разина</a>
+            </p>
+            <p>
+              <a href="https://yandex.ru/maps/213/moscow/geo/nizhnyaya_krasnoselskaya_ulitsa/10049867/?ll=37.671112%2C55.776001&z=16"
+                target="_blank" class="text-reset fas fa-home me-3">Москва, Нижняя Красносельская</a>
+            </p>
+            <p>
+              <a href="mailto:e.mail.ru" class="text-reset fas fa-home me-3">TverwebsiteDesign01@mail.ru</a>
+            </p>
+            <p>
+              <a href="mailto:e.mail.ru" class="text-reset fas fa-home me-3">MscwebsiteDesign01@mail.ru</a>
+            </p>
+            <p>
+              <a href="tel:+79874565432" class="text-reset fas fa-home me-3">+7 958 456 54-32 Tver</a>
+            </p>
+            <p>
+              <a href="tel:+79874565432" class="text-reset fas fa-home me-3">+7 999 456 54-32 Msc</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+      </div>
+    </section>
+    <!-- Section: Links  -->
+
+    <!-- Copyright -->
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+      © 2022 Copyright:
+      <a class="text-reset fw-bold" href="#!">WebsiteDesign.ru</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+</body>
+
+</html>

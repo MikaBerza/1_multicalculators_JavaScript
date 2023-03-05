@@ -1,0 +1,171 @@
+/*Рассмотрим, как браузер обрабатывает список шрифтов, 
+заданный в нашем свойстве font-family:
+Сначала он проверяет, установлен ли шрифт Verdana на компьютере, 
+и, если да, использует его в качестве шрифта для текста внутри 
+элемента (в нашем случае внутри элемента <body>)
+Если Verdana не установлен, то ищет шрифт Helvetica. В случае 
+успешного поиска использует его внутри <body>.
+Если и Helvetica не установлен, то ищет шрифт Arial. Если он 
+имеется на компьютере, то применяет его внутри <body>.
+И наконец, если ни один из указанных шрифтов не найден, 
+применяется первый, найденный б
+*/
+
+
+/*__________Список переменных__________*/
+:root {
+  --borderOne: 6px solid #43d854;
+}
+
+/*_______________flexbox1______________________*/
+.flex-container {
+  margin: 40px auto;
+  width: 49rem;
+  border: var(--borderOne);
+  border-radius: 25px;
+  /* background-color: #0088cc; */
+  background-image: url('/5_img/5_9_dailyTodoListImg/octopus.svg');
+  /* прозрачность */
+  opacity: 0.8;
+}
+
+span {
+  margin: 5px;
+}
+
+.main-item1 {
+  display: flex;
+  justify-content: space-around;
+}
+
+.main-item1__h4 {
+  color: black;
+  font-size: 1.3rem;
+  margin: 1.1rem;
+}
+
+.main-item1__h5 {
+  margin: 0;
+  margin-bottom: 1.3rem;
+  margin-left: 20px;
+  color: black;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.main-item2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#main-input {
+  width: 70%;
+  height: 30px;
+  border: 2px solid #F4A900;
+  border-radius: 8px 0px 0px 8px;
+  /* убираем жирный бордер при клике */
+  outline: none;
+  margin-bottom: 1.1rem;
+  margin-left: 10px;
+  padding-left: 10px;
+}
+/* При клике появляется белая тень на вводе,
+делаем для того, чтобы было видно когда
+по кнопке производят клик*/
+#main-input:active {
+  box-shadow: 0 0 10px white;
+  border: 2px solid white;
+}
+::placeholder {
+  color: #A5A5A5;
+  opacity: 0.7;
+
+}
+
+#main-button {
+  width: 30%;
+  height: 30px;
+  background-color: #F4A900;
+  border: 2px solid #F4A900;
+  border-radius: 0px 8px 8px 0px;
+  /* убираем жирный бордер при клике */
+  outline: none;
+  margin-right: 10px;
+  margin-bottom: 1.1rem;
+  color: white;
+  font-weight: 700;
+}
+/*При наведении изменяем цвет надписи на кнопке
+и изменяем форму курсора мыши*/
+#main-button:hover {
+  color: black;
+  font-weight: 700;
+  /*форма курсора мыши*/
+  cursor: pointer;
+
+}
+/* При клике появляется белая тень на кнопке,
+делаем для того, чтобы было видно когда
+по кнопке производят клик*/
+#main-button:active {
+  box-shadow: 0 0 10px white;
+  border: 2px solid white;
+}
+
+.content-items {
+  padding-left: 30px;
+  margin-bottom: 30px;
+}
+
+.content-items__li {
+  /* для позиционирования крестика крестика */
+  display: flex;
+  justify-content: space-between;
+  /*выравниваем элементы*/
+  align-items: center;
+  margin: 10px;
+  padding: 0.8rem;
+  width: 42.5rem;
+  font-size: 14px;
+  background-color: white;
+  border-radius: 8px;
+  border: 2px solid #F4A900;
+  /* Устанавливает форму курсора */
+  cursor: pointer;
+}
+
+/* если заметка выполнена, текст становится перечеркнутым */
+.done {
+  text-decoration: line-through;
+  color: red;
+}
+
+/* стилизация крестика закрыть */
+.close {
+  color: #CD5C5C;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+/*___Анимация, эффект сборки 
+элементов в реальном времени___*/
+#main-button  {
+  animation-duration: 3s;
+  animation-name: btn;
+}
+
+@keyframes btn {
+  from {
+    margin-top: 70%;
+    width: 70%;
+  }
+
+  to {
+    margin-top: 0%;
+    width: 30%;
+  }
+}
+
+/*___Анимация, эффект сборки 
+элементов в реальном времени___*/

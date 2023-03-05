@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="/2_normalize/normalize.css">
+  <link rel="stylesheet" href="/3_textStyles/textStyle.css">
+
+  <!-- Bootstrap-styles -->
+  <link rel="stylesheet" href="/1_bootstrap-5.2.0-dist/css/bootstrap.min.css">
+  <!-- Сustom-styles -->
+  <link rel="stylesheet" href="/6_0_mainPage/mainСustomStyle.css">
+  <link rel="stylesheet" href="/7_headerAndFooterCustomStyle/headerAndFooterCustomStyle.css">
+  <!-- Slider-styles -->
+  <link rel="stylesheet" href="/6_0_mainPage/6_0_1_swiperjs/swiper-bundle.css">
+  <link rel="stylesheet" href="/6_0_mainPage/6_0_1_swiperjs/swiper-bundle.min.css">
+
+  <!-- 
+Атрибут defer сообщает браузеру, что он должен продолжать обрабатывать страницу и загружать скрипт в 
+фоновом режиме, а затем запустить этот скрипт, когда DOM дерево будет полностью построено.
+-->
+  <script defer src="/1_bootstrap-5.2.0-dist/js/jquery-3.6.0.min.js"></script>
+  <script defer src="/1_bootstrap-5.2.0-dist/js/popper.min.js"></script>
+  <!-- Bootstrap-script -->
+  <script defer src="/1_bootstrap-5.2.0-dist/js/bootstrap.min.js"></script>
+  <!-- Slider-script -->
+  <script defer src="/6_0_mainPage/6_0_1_swiperjs/swiper-bundle.js"></script>
+  <script defer src="/6_0_mainPage/6_0_1_swiperjs/swiper-bundle.min.js"></script>
+  <script defer src="/6_0_mainPage/6_0_1_swiperjs/initializeSwiper.js"></script>
+  <!-- linksMultiCalculators-script -->
+  <script defer src="/8_linksMultiCalculators/linksMultiCalculators.js"></script>
+  <!-- Animation-script -->
+  <script defer src="/6_0_mainPage/mainAnimationSectionFreeScript.js"></script>
+  <!-- Speed-click-script -->
+  <script defer src="/6_0_mainPage/mainSpeedClickSectionFourScript.js"></script>
+
+  <title>Мульти вычислители</title>
+</head>
+
+
+
+<body>
+  <!-----HEADER--------------------------------------------------------------------------->
+  <header>
+    <nav class="navbar navbar-expand-lg bg-light">
+      <div class="container-xxl">
+        <a id="main__page" class="navbar-brand " href="#">
+          <img src="/5_img/5_0_mainImg/header/logo.png" height="60" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Переключатель навигации">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                Мульти вычислители
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li><a id="header__borsch" class="dropdown-item" href="">Борщ - расчет ингредиентов</a></li>
+                <li><a id="header__pancake" class="dropdown-item" href="">Блины - расчет ингредиентов</a></li>
+                <li><a id="header__pilaf" class="dropdown-item" href="">Плов - расчет ингредиентов</a></li>
+                <li><a id="header__mortgage" class="dropdown-item" href="">Ипотечный - калькулятор</a></li>
+                <li><a id="header__day" class="dropdown-item" href="">Дневной - калькулятор</a></li>
+                <li><a id="header__factsCats" class="dropdown-item" href="">Факты о котах</a></li>
+                <li><a id="header__energy" class="dropdown-item" href="">Калькулятор стоимости электроэнергии</a></li>
+                <li><a id="header__coldWater" class="dropdown-item" href="">Калькулятор стоимости холодной воды</a></li>
+                <li><a id="header__todoList" class="dropdown-item" href="">Ежедневный список дел</a></li>
+                <li><a id="header__password" class="dropdown-item" href="">Генератор паролей</a></li>
+                <li><a id="header__notepad" class="dropdown-item" href="">Блокнот</a></li>
+                <li><a id="header__informationIp" class="dropdown-item" href="">Информация об IP</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#animation">Викинг и лягушка</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#high-speed-click">Быстрый щелчок</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-----SectionOne--------------------------------------------------------------------------->
+    <section class="section-one">
+      <!-- Контейнер слайдера -->
+      <div class="swiper container-xxl">
+        <!-- Дополнительная оболочка -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide" style="background-image: url(/5_img/5_0_mainImg/SectionOne/fon1.jpg)">
+            <h1 class="card-title card-title-sectionOne">История создания калькулятора</h1>
+            <p class="card-text card-text-sectionOne">
+              Историю вычислительных машин и калькуляторов, традиционно начинают с
+              суммирующей машины Паскаля, созданной в 1643 году Блезом Паскалем, и арифмометра
+              Лейбница, изобретённого в 1673 году немецким математиком Готфридом Вильгельмом
+              Лейбницем. В 1876 году русский математик П. Л. Чебышёв создал суммирующий
+              аппарат с непрерывной передачей десятков.
+            </p>
+          </div>
+          <div class="swiper-slide" style="background-image: url(/5_img/5_0_mainImg/SectionOne/fon2.jpg)">
+            <h1 class="card-title card-title-sectionOne">История создания калькулятора</h1>
+            <p class="card-text card-text-sectionOne">
+              В 1881 году он же сконструировал к нему приставку для умножения и деления (арифмометр Чебышёва).
+              Массовый выпуск механических устройств автоматизации счёта начался в конце XIX века:
+              суммирующие машины, табуляторы и арифмометры стали реальным подспорьем в бухгалтерии,
+              статистике и инженерных расчётах. Электронные клавишные вычислительные устройства
+              были созданы в 1950-х годах с использованием сначала реле, а затем полупроводниковых
+              компонентов.
+            </p>
+          </div>
+          <div class="swiper-slide" style="background-image: url(/5_img/5_0_mainImg/SectionOne/fon3.jpg)">
+            <h1 class="card-title card-title-sectionOne">История создания калькулятора</h1>
+            <p class="card-text card-text-sectionOne">
+              Первые такие приборы были размером с мебельную тумбу и весили более сотни килограммов.
+              Так, в 1957 году компанией Casio был выпущен один из первых серийных калькуляторов 14-А.
+              Он выполнял четыре действия арифметики над 14-разрядными десятичными числами. Конструкция
+              использовала реле, весила 140 кг и была выполнена в виде стола с тумбой-вычислительным блоком,
+              клавиатурой и дисплеем, при работе потребляла 300 Вт.
+            </p>
+          </div>
+          <div class="swiper-slide" style="background-image: url(/5_img/5_0_mainImg/SectionOne/fon4.jpg)">
+            <h1 class="card-title card-title-sectionOne">История создания калькулятора</h1>
+            <p class="card-text card-text-sectionOne">
+              В 1961 году в Великобритании начат выпуск первого массового полностью электронного калькулятора
+              ANITA MK VIII с 11-разрядным индикатором на газоразрядных лампах, полной клавиатурой для ввода
+              числа + десять клавиш для ввода множителя. В СССР в 1964 году выпущен первый отечественный серийный
+              электронный калькулятор «Вега», в США в том же году появился массовый полностью транзисторный
+              калькулятор FRIDEN 130 (4 регистра, обратная польская нотация).
+            </p>
+          </div>
+        </div>
+        <!-- Разбивка на страницы -->
+        <div class="swiper-pagination"></div>
+        <!-- Навигационные кнопки -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </section>
+
+
+    <!-----SectionTwo--------------------------------------------------------------------------->
+    <section class="section-two container-xxl" id="sectionTwo">
+      <div class="heading">
+        <h2 class="card-title">Мульти вычислители</h2>
+      </div>
+      <div class="row row-cols-1 row-cols-md-3 g-4 ">
+        <div class="col">
+          <div class="card h-100">
+            <img src="/5_img/5_0_mainImg/SectionTwo/1_borsch.png" class="card-img-top card-img-sectionTwo" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Борщ - расчет ингредиентов</h5>
+              <p class="card-text">Вычисляет требуемое количество продуктов для приготовления
+                указанного числа порций.</p>
+              <a id="sectionTwo__borsch" href=""><button type="button"
+                  class="btn btn-outline-primary">Перейти</button></a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <img src="/5_img/5_0_mainImg/SectionTwo/2_pancakes.png" class="card-img-top card-img-sectionTwo" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Блины - расчет ингредиентов</h5>
+              <p class="card-text">Вычисляет требуемое количество продуктов для приготовления
+                указанного числа порций.</p>
+              <a id="sectionTwo__pancake" href=""><button type="button"
+                  class="btn btn-outline-primary">Перейти</button></a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <img src="/5_img/5_0_mainImg/SectionTwo/3_pilaf.png" class="card-img-top card-img-sectionTwo" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Плов - расчет ингредиентов</h5>
+              <p class="card-text">Вычисляет требуемое количество продуктов для приготовления
+                указанного числа порций.</p>
+              <a id="sectionTwo__pilaf" href=""><button type="button"
+                  class="btn btn-outline-primary">Перейти</button></a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <img src="/5_img/5_0_mainImg/SectionTwo/4_IpotechCalck.jpg" class="card-img-top card-img-sectionTwo"
+              alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Ипотечный - калькулятор</h5>
+              <p class="card-text">Вычисляет аннуитетный и дифференцированный платеж при
+                погашении займа.</p>
+              <a id="sectionTwo__mortgage" href=""><button type="button"
+                  class="btn btn-outline-primary">Перейти</button></a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <img src="/5_img/5_0_mainImg/SectionTwo/5_kalendar.jpg" class="card-img-top card-img-sectionTwo" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Дневной - калькулятор</h5>
+              <p class="card-text">Вычисляет количество дней недели между датами, позволяя спланировать
+                свои задачи.</p>
+              <a id="sectionTwo__day" href=""><button type="button" class="btn btn-outline-primary">Перейти</button></a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <img src="/5_img/5_0_mainImg/SectionTwo/6_factsAboutCats.jpg" class="card-img-top card-img-sectionTwo"
+              alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Факты о котах</h5>
+              <p class="card-text">Подборка фактов позволит вам узнать много нового про наших домашних любимцев.</p>
+              <a id="sectionTwo__factsCats" href=""><button type="button"
+                  class="btn btn-outline-primary">Перейти</button></a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <img src="/5_img/5_0_mainImg/SectionTwo/7_electrika.jpg" class="card-img-top card-img-sectionTwo" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Калькулятор стоимости электроэнергии</h5>
+              <p class="card-text">Вычисляет расход и стоимость электроэнергии, потребляемой
+                пользователем с учетом времени работы прибора.</p>
+              <a id="sectionTwo__energy" href=""><button type="button"
+                  class="btn btn-outline-primary">Перейти</button></a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <img src="/5_img/5_0_mainImg/SectionTwo/8_XVS.jpg" class="card-img-top card-img-sectionTwo" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Калькулятор стоимости холодной воды</h5>
+              <p class="card-text">Вычисляет расход и стоимость холодного водоснабжения,
+                с учетом времени работы прибора.</p>
+              <a id="sectionTwo__coldWater" href=""><button type="button"
+                  class="btn btn-outline-primary">Перейти</button></a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <img src="/5_img/5_0_mainImg/SectionTwo/9_todoList1.jpg" class="card-img-top card-img-sectionTwo" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Ежедневный список дел</h5>
+              <p class="card-text">Позволяет записывать список запланированных дневных дел, редактировать, помечать дела
+                сделанными и удалять их.</p>
+              <a id="sectionTwo__todoList" href=""><button type="button"
+                  class="btn btn-outline-primary">Перейти</button></a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <img src="/5_img/5_0_mainImg/SectionTwo/10_password.jpg" class="card-img-top card-img-sectionTwo" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Генератор паролей</h5>
+              <p class="card-text">Генерирует пароль из цифр, букв и специальных символов заданной длины.</p>
+              <a id="sectionTwo__password" href=""><button type="button"
+                  class="btn btn-outline-primary">Перейти</button></a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <img src="/5_img/5_0_mainImg/SectionTwo/11_notepad.jpg" class="card-img-top card-img-sectionTwo" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Блокнот</h5>
+              <p class="card-text">Блокнот позволяет держать все записи в одном месте и возвращаться к ним спустя время.
+              </p>
+              <a id="sectionTwo__notepad" href=""><button type="button"
+                  class="btn btn-outline-primary">Перейти</button></a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <img src="/5_img/5_0_mainImg/SectionTwo/12_informationIp.jpg" class="card-img-top card-img-sectionTwo" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Информация об IP</h5>
+              <p class="card-text">Позволяет получить ваш текущий IP-адрес и информацию о нем и указанном IP.
+              </p>
+              <a id="sectionTwo__informationIp" href=""><button type="button"
+                  class="btn btn-outline-primary">Перейти</button></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-----SectionThree--------------------------------------------------------------------------->
+    <section class="section-free container-xxl">
+      <div class="section-free-heading">
+        <h2 class="card-title"><a name="animation"></a>Викинг и лягушка</h2>
+        <h5>Для запуска анимации выполните двойной клик по значку <img class="img-symbol"
+            src="/5_img/5_0_mainImg/SectionThreeViking/icons-start1.png" alt=""></h5>
+        <h5>Для остановки анимации выполните одинарный клик по значку <img class="img-symbol"
+            src="/5_img/5_0_mainImg/SectionThreeViking/icons-stop1.png" alt=""></h5>
+      </div>
+      <div class="section-free-block">
+        <img id="imgSectionThree" class="container-xxl" src="/5_img/5_0_mainImg/SectionThreeViking/1.png" alt="">
+        <button id="btnSectionThreeStart" type="button" class="btn btn-sectionThre-play"><img
+            src="/5_img/5_0_mainImg/SectionThreeViking/icons-start1.png" alt=""></button>
+        <button id="btnSectionThreeStop" type="button" class="btn btn-sectionThre-pause"><img
+            src="/5_img/5_0_mainImg/SectionThreeViking/icons-stop1.png" alt=""></button>
+      </div>
+    </section>
+
+    <!-----SectionFour--------------------------------------------------------------------------->
+    <section class="section-four">
+      <div class="oneBlock-section-four container-xxl">
+        <h2 class="card-title"><a name="high-speed-click"></a>Быстрый щелчок</h2>
+      </div>
+      <div class="twoBlock-section-three container-xxl">
+        <h4 class="h4__item">
+          Вычисляет скорость кликов, за 30 - секундный интервал времени. Таймер обратного отсчета,
+          запускается после нажатия кнопки "Click".
+        </h4>
+      </div>
+      <div class="threeBlock-section-four">
+        <table class="table">
+          <tbody>
+            <tr>
+              <th scope="row">Таймер</th>
+              <td id="timerSectionFour">30</td>
+              <td>сек</td>
+            </tr>
+            <tr>
+              <th scope="row">Счетчик</th>
+              <td id="counterSectionFour">0</td>
+              <td>клик</td>
+            </tr>
+            <tr>
+              <th scope="row">Результат</th>
+              <td id="resultSectionFour">0</td>
+              <td>клик/сек</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="fourBlock-section-four">
+        <button id="btnClickSectionFour" class="btn btn-success btn__click border-1" type="button">Click<img
+            class="img-section-four" src="/5_img/5_0_mainImg/SectionFour/iconClick.png" alt=""></button>
+        <button id="btnRebootSectionFour" class="btn btn-success btn__reboot" type="button"><img
+            class="img-section-four" src="/5_img/5_0_mainImg/SectionFour/iconObnov.png" alt=""></button>
+      </div>
+    </section>
+  </main>
+
+
+
+
+  <!-----Footer--------------------------------------------------------------------------->
+  <footer id="footer" class="text-center text-lg-start bg-light text-muted">
+    <!-- Section: Social media -->
+    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom container-xxl">
+      <!-- Left -->
+      <div>
+        <div style="padding-bottom: 15px;">
+          Cоциальные сети:
+        </div>
+        <a href="https://www.whatsapp.com/" target="_blank" class="me-4 text-reset"><img class="footerIcon"
+            src="/5_img/5_0_mainImg/Footer/iconWhatsapp.png" alt=""></a>
+        <a href="https://web.telegram.org/k/" target="_blank" class="me-4 text-reset"><img class="footerIcon"
+            src="/5_img/5_0_mainImg/Footer/iconTelegram.png" alt=""></a>
+        <a href="https://instagram-my.ru" target="_blank" class="me-4 text-reset"><img class="footerIcon"
+            src="/5_img/5_0_mainImg/Footer/iconInstagram.png" alt=""></a>
+        <a href="https://www.tiktok.com/" target="_blank" class="me-4 text-reset"><img class="footerIcon"
+            src="/5_img/5_0_mainImg/Footer/iconsTikTok.png" alt=""></a>
+        <a href="https://github.com/" target="_blank" class="me-4 text-reset"><img class="footerIconGit"
+            src="/5_img/5_0_mainImg/Footer/iconsGithub.png" alt=""></a>
+      </div>
+      <!-- Left -->
+    </section>
+    <!-- Section: Social media -->
+
+    <!-- Section: Links  -->
+    <section class="">
+      <div class="container-xxl text-center text-md-start mt-5">
+        <!-- Grid row -->
+        <div class="row mt-3">
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <!-- Content -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              <i class="#"></i>Проектирование сайтов
+            </h6>
+            <p>Эскизный проект</p>
+            <p> Дизайнерские решения</p>
+            <p>Верстка сайта
+            </p>
+            <p>
+              Программная часть
+            </p>
+            <p>
+              Наполнение контентом и тестирование
+            </p>
+            <p>
+              Выпуск
+            </p>
+
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Инструменты
+            </h6>
+            <p>
+              <a href="https://balsamiq.com/wireframes/" target="_blank" class="text-reset">BalsamiqMockups</a>
+            </p>
+            <p>
+              <a href="https://www.figma.com/files/recent?fuid=1114807420115018183" target="_blank"
+                class="text-reset">Figma</a>
+            </p>
+            <p>
+              <a href="http://htmlbook.ru/" target="_blank" class="text-reset">HTML && CSS</a>
+            </p>
+            <p>
+              <a href="https://262.ecma-international.org/" target="_blank" class="text-reset">JavaScript</a>
+            </p>
+            <p>
+              <a href="https://browsershots.org/" target="_blank" class="text-reset">internet && Browsershots</a>
+            </p>
+            <p>
+              Передача заказчику
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Контакты
+            </h6>
+            <p>
+              <a href="https://yandex.ru/maps/14/tver/geo/naberezhnaya_stepana_razina/8001632/?ll=35.920722%2C56.859018&z=16"
+                target="_blank" class="text-reset fas fa-home me-3">Тверь, набережная Степана Разина</a>
+            </p>
+            <p>
+              <a href="https://yandex.ru/maps/213/moscow/geo/nizhnyaya_krasnoselskaya_ulitsa/10049867/?ll=37.671112%2C55.776001&z=16"
+                target="_blank" class="text-reset fas fa-home me-3">Москва, Нижняя Красносельская</a>
+            </p>
+            <p>
+              <a href="mailto:e.mail.ru" class="text-reset fas fa-home me-3">TverwebsiteDesign01@mail.ru</a>
+            </p>
+            <p>
+              <a href="mailto:e.mail.ru" class="text-reset fas fa-home me-3">MscwebsiteDesign01@mail.ru</a>
+            </p>
+            <p>
+              <a href="tel:+79874565432" class="text-reset fas fa-home me-3">+7 958 456 54-32 Tver</a>
+            </p>
+            <p>
+              <a href="tel:+79874565432" class="text-reset fas fa-home me-3">+7 999 456 54-32 Msc</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+      </div>
+    </section>
+    <!-- Section: Links  -->
+
+    <!-- Copyright -->
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+      © 2022 Copyright:
+      <a class="text-reset fw-bold" href="#!">WebsiteDesign.ru</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+</body>
+
+</html>

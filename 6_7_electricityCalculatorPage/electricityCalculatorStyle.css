@@ -1,0 +1,144 @@
+html {
+  font-size: 16px;
+}
+
+/* Используем rem - для адаптивной верстки */
+/* После того как мы установили - (html {font-size: 16px;}), 
+мы получили такое соотношение (1rem = 16px)!!!*/
+
+input {
+  border: 1.5px solid #808080;
+  border-radius: 8px;
+  /*интервал между буквами в слове*/
+  letter-spacing: 5px;
+  font-size: 0.9rem;
+  width: 7rem;
+  text-align: center;
+}
+
+
+
+/*<!-----SectionOne--------------------------------------------------------------------------->*/
+.section-one {
+  max-width: 60rem;
+  /* max-height: 60rem; */
+  /* центрируем*/
+  display: flex;
+  margin: auto;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  background-image: url('/5_img/5_7_electricityCalculatorImg/fon_electricity4.jpg');
+  padding: 2rem;
+  /* размер картинки */
+  background-size: 100rem;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/*<!-----Container-one-------------------------------------------------------------------------->*/
+.electric-meter {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 0.5rem;
+  padding: 0.3rem;
+  width: 17rem;
+  height: 22rem;
+  border-radius: 2rem 2rem 2rem 2rem;
+  background-color: white;
+}
+
+
+.electric-meter__header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: white;
+}
+
+.electric-meter__header-centre {
+  height: 170%;
+  background: repeating-linear-gradient(white 20px,
+      white 20px);
+  transform: rotate(35deg);
+  color: white;
+}
+
+
+.electric-meter__counting-element {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.electric-meter__legend-panel {
+  display: flex;
+  justify-content: space-around;
+  /* min-height: 30px; */
+  /* border: 2px solid green; */
+  font-size: 0.7rem;
+}
+
+.electric-meter__table {
+  border-collapse: collapse;
+  width: 100%;
+  border-spacing: 0;
+  border: 1px solid #2271B3;
+}
+
+.electric-meter__td {
+  border: 1px solid #2271B3;
+  text-align: center;
+}
+
+.electric-meter__indicator {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 2%;
+}
+
+.electric-meter__conditional-characters {
+  display: flex;
+  justify-content: space-around;
+  font-size: 150%;
+}
+
+
+.electric-meter__footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+.electric-meter__footer-mark-of-approval,
+.electric-meter__footer-mark-of-conformity {
+  width: 1.5rem;
+}
+
+.electric-meter__footer-barcode {
+  width: 2.3rem;
+}
+
+.electric-meter__footer-text {
+  font-size: 0.8rem;
+}
+
+/* ------------------Изменяемый бордер элементов ввода------------------------------- */
+.bordTwo {
+  border: 1.5px solid red;
+}
+
+
+@media (max-width: 675px) {
+  .section-one {
+    display: flex;
+    flex-direction: column;
+    /* размер картинки */
+    background-size: auto;
+  }
+}

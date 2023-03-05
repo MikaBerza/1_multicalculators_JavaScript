@@ -1,0 +1,328 @@
+/*__________Список переменных__________*/
+:root {
+  --borderOne: 6px solid #0088cc;
+  --borderTwo: 1px solid white;
+  --activeСlick1: 0 0 10px white;
+}
+
+/*_______________main______________________*/
+.main__flex-container {
+  margin: 40px auto;
+  max-width: 70rem;
+  background-image: url('/5_img/5_11_notepadImg/bird1.svg');
+  background-repeat: no-repeat;
+  /* cover-масштабирует изображение с сохранением пропорций так, 
+  чтобы его ширина или высота равнялась ширине или высоте блока. */
+  background-size: cover;
+  border: var(--borderOne);
+  border-radius: 25px;
+  /* прозрачность */
+  opacity: 0.8;
+}
+
+/*_______________main__header-block______________________*/
+.main__header-block {
+  display: flex;
+  justify-content: center;
+}
+
+/*_______________main__centre-block______________________*/
+.main__centre-block {
+  display: flex;
+}
+
+.main__section-one {
+  width: 40%;
+  margin: 15px;
+}
+
+.main__input-search {
+  width: 100%;
+  height: 30px;
+  margin-right: 15px;
+  padding-left: 8px;
+  padding-right: 8px;
+  border: var(--borderTwo);
+  border-radius: 8px;
+  /* убираем жирный бордер при клике */
+  outline: none;
+}
+
+/* Удаление крестика из input[type="search"] */
+.main__input-search::-webkit-search-cancel-button {
+  display: none;
+}
+
+/*_____Стилизация фильтрации и счетчика  */
+.main__filtering-and-counter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main__counter,
+.main__filtering {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.main__counter-text-done,
+.main__counter-text-notDone,
+.main__filtering-text {
+  width: 100%;
+  font-weight: 600;
+  color: #696969;
+  margin-top: 10px;
+  text-align: right;
+}
+
+
+.main__filtering-text {
+  margin-top: 0px;
+}
+
+.main__counter-indicator {
+  width: 100%;
+  height: 40px;
+  font-size: 160%;
+}
+
+.main__filtering-select {
+  margin-top: 13px;
+  margin-bottom: 5px;
+  width: 100%;
+  font-size: 14px;
+  border: var(--borderTwo);
+  border-radius: 10px;
+  /* убираем жирный бордер при клике */
+  outline: none;
+  color: #696969;
+}
+
+.main__numbered-list {
+  margin-top: 15px;
+  padding: 0;
+  border-radius: 10px;
+  /* делаем скрол */
+  list-style-type: none;
+  height: 440px;
+  overflow: auto;
+}
+
+/*_____Стилизация полосы прокрутки*/
+.main__numbered-list::-webkit-scrollbar {
+  /* ширина scrollbar */
+  width: 1em;
+}
+
+.main__numbered-list::-webkit-scrollbar-track {
+  /* цвет дорожки */
+  background: white;
+  border: var(--borderTwo);
+  border-radius: 20px;
+}
+
+.main__numbered-list::-webkit-scrollbar-thumb {
+  /* цвет плашки */
+  background-color: #BCBCBC;
+  /* закругления плашки */
+  border-radius: 20px;
+  /* padding вокруг плашки */
+  border: 1px solid #BCBCBC;
+}
+
+/*При наведении изменяем цвет кнопки*/
+.main__numbered-list::-webkit-scrollbar-thumb:hover {
+  /* цвет плашки */
+  background-color: #507D2A;
+  /* закругления плашки */
+  border-radius: 20px;
+  /* padding вокруг плашки */
+  border: 1px solid #507D2A;
+  /*форма курсора мыши*/
+  cursor: pointer;
+}
+
+
+.main__list-item {
+  /* display: flex;
+  justify-content: space-between;
+  align-items: center; 
+  text-align: center; */
+  margin: 0px 15px 15px 0px;
+  padding: 0.5rem;
+  font-size: 16px;
+  background-color: white;
+  border-radius: 8px;
+  border: var(--borderTwo);
+  /*автоматический перенос текста, чтобы текс 
+  поместился в заданную ширину блока*/
+  word-wrap: break-word;
+  /* прозрачность */
+  opacity: 0.8;
+}
+
+/* если задача выполнена */
+.done {
+  background-color: #D0F0C0;
+}
+
+.main__list-item-block1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+input[type=checkbox] {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.main__list-item-block2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.main__list-item-date {
+  display: flex;
+  justify-content: left;
+  margin-top: 10px;
+  color: black;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.main__list-item-close {
+  display: flex;
+  justify-content: right;
+  color: black;
+  font-size: 18px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.main__list-item-close:hover {
+  color: #CD5C5C;
+}
+
+.main__section-two {
+  width: 60%;
+  align-items: center;
+  text-align: center;
+}
+
+.main__block-textarea {
+  display: flex;
+}
+
+
+.main__textarea {
+  width: 100%;
+  margin: 15px;
+  padding: 5px 10px;
+  font-size: 18px;
+  border-radius: 8px;
+  border: var(--borderTwo);
+  /* убираем жирный бордер при клике */
+  outline: none;
+  /* запрещаем растягивание */
+  resize: none;
+}
+
+
+.main__block-button {
+  margin: 15px;
+}
+
+.main__button {
+  width: 100%;
+  padding: 0.3em;
+  font-size: 1.2em;
+  border-radius: 8px;
+  border: 1px solid #BCBCBC;
+  background-color: #BCBCBC;
+  font-weight: 600;
+  color: black;
+}
+
+/*При наведении изменяем цвет надписи на кнопке
+и изменяем форму курсора мыши*/
+.main__button:hover {
+  color: white;
+  border: 1px solid #507D2A;
+  background-color: #507D2A;
+  font-weight: 700;
+  /*форма курсора мыши*/
+  cursor: pointer;
+}
+
+/* При клике появляется белая тень,
+делаем для того, чтобы было видно когда
+производят клик по элементу*/
+.main__input-search:active,
+.main__textarea:active,
+.main__button:active {
+  box-shadow: var(--activeСlick1);
+  border: var(--borderTwo);
+}
+
+/*___Анимация, эффект сборки 
+элементов в реальном времени___*/
+.main__button,
+.main__input-search,
+.main__counter-indicator,
+.main__filtering-select {
+  animation-duration: 3s;
+  animation-name: controls;
+}
+
+@keyframes controls {
+  from {
+    margin-left: 100%;
+    width: 0%;
+  }
+
+  to {
+    margin-right: 100%;
+    width: 100%;
+  }
+}
+/*___Анимация, эффект сборки 
+элементов в реальном времени___*/
+
+
+/*когда экран меньше 540px, смещаем блок для ввода под первый блок для вывода*/
+@media (max-width:540px) {
+  .main__centre-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .main__section-one {
+    width: 80%;
+    margin: 15px;
+  }
+
+  .main__numbered-list {
+    height: 140px;
+  }
+
+  .main__section-two {
+    width: 100%;
+  }
+
+  .main__filtering-text,
+  .main__counter-text-done,
+  .main__counter-text-notDone {
+    text-align: center;
+    color: black;
+  }
+}

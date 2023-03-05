@@ -1,0 +1,150 @@
+p {
+  margin: 10px;
+}
+
+input {
+  margin: 10px;
+  border: 1.5px solid #808080;
+  border-radius: 8px;
+  /*интервал между буквами в слове*/
+  letter-spacing: 5px;
+  text-align: center;
+}
+
+
+/*<!-----SectionOne--------------------------------------------------------------------------->*/
+.section-one {
+  max-width: 1200px;
+  border-radius: 100px;
+  border-right: 60px;
+  /* центрируем*/
+  display: flex;
+  margin: auto;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  background-image: url('/5_img/5_8_waterCalculatorImg/Fon_water.jpg');
+  /* размер картинки */
+  background-size: 1200px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Медиа-запрос.
+Когда ширина икрана доходит до 610px
+мы делаем display: block, тем самым наши приборы учета смещаются
+под левый заголовок*/
+@media (max-width: 610px) {
+  .section-one {
+    display: block;
+    border-radius: 20px;
+  }
+}
+
+/*<!-----SectionHeading----------------------------------------------------------------------->*/
+.section-heading {
+  max-width: 500px;
+  margin: auto;
+  text-align: center;
+  /*чтобы текст не выезжал за родительский блок*/
+  word-wrap: break-word;
+}
+
+.h4__item {
+  font-weight: 300;
+  /* Жирность шрифта */
+}
+
+/*----------------------------Приборы ХВС (холод.водоснабж)-----------------*/
+
+.cold__device {
+  margin: auto;
+  margin-bottom: 20px;
+  /* центрируем*/
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* размеры прибора */
+  width: 270px;
+  height: 270px;
+  /* Рамка вокруг текста */
+  border: 8px solid #4169E1;
+  border-radius: 140px;
+}
+
+/* -------------UL------ LI */
+.cold__ulOne,
+.cold__ulTwo {
+  /* Обнуляем значение отступов */
+  margin: 0;
+  /* Значение полей */
+  padding: 4px;
+}
+
+.cold__ulOne,
+.cold__ulTwo,
+.coldOneLi,
+.coldTwoLi {
+  /* Отображать как строчный элемент */
+  display: inline;
+  /* Отступ слева */
+  margin-right: 5px;
+  /* Поля вокруг текста */
+  padding: 3px;
+}
+
+/* -------------UL------ LI */
+
+.li__black {
+  background-color: #808080;
+  color: white;
+  /* Рамка вокруг текста */
+  border: 1px solid #808080;
+}
+
+.li__blue {
+  background-color: #4169E1;
+  color: white;
+  /* Рамка вокруг текста */
+  border: 1px solid #4169E1;
+}
+
+.unitMeasurement {
+  font-size: 12px;
+}
+
+/* инпут на тариф ХВС и ГВС */
+.inpRate {
+  width: 120px;
+}
+
+/* Кнопка расчитать */
+.cold__btn {
+  border: 2px solid #4169E1;
+  background-color: #4169E1;
+  border-radius: 8px;
+  color: white;
+}
+
+/* При наведении курсора мыши на кнопку иеняем ее*/
+.cold__btn:hover {
+  border: 2px solid blue;
+  background-color: blue;
+}
+
+
+/* ------------------Изменяемый бордер элементов ввода------------------------------- */
+.bordTwo {
+  border: 1.5px solid red;
+}
+
+/* ------------------Изменяемый бордер элементов ввода------------------------------- */
+
+/* ------------------ Изменяемый вывод неправильных результатов расчета---------------*/
+.resultStyle {
+  color: red;
+  font-weight: 600;
+}
+
+/* ------------------ Изменяемый вывод неправильных результатов расчета---------------*/

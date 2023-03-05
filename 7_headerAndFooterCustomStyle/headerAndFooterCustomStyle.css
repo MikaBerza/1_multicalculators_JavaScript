@@ -1,0 +1,60 @@
+/*-----header---------------------------------------------------------------------------*/
+header {
+  /* Элемент с position: sticky; фиксируется в рамках ближайшего родителя, когда расстояние 
+  до границы ближайшего прокручиваемого родителя достигает указанного 
+  в свойствах top, right, bottom, left значения. */
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+:root {
+  --bs-border-color-translucent: #0088cc;
+}
+
+
+.navbar {
+  --bs-navbar-toggler-icon-bg: url('/5_img/5_0_mainImg/header/icons-burger-menu-30.png');
+  --bs-navbar-toggler-border-color: #0088cc;
+  --bs-navbar-color: #0088cc;
+}
+
+
+.bg-light {
+  background-color: white !important;
+}
+
+.nav-link,
+.active {
+  color: #0088cc !important;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.dropdown-item {
+  color: #0088cc;
+  font-size: 18px;
+}
+
+@media (max-width: 400px) {
+  .dropdown-item {
+    color: #0088cc;
+    font-size: 12px;
+  }
+}
+
+/*-----Footer---------------------------------------------------------------------------*/
+#footer {
+  background-color: #F8F8F8 !important;
+}
+
+.footerIcon {
+  width: 30px;
+}
+
+.footerIconGit {
+  width: 25px;
+
+}
