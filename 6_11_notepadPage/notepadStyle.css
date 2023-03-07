@@ -176,6 +176,14 @@
   justify-content: space-between;
 }
 
+.main__list-item-text {
+  /* заданная ширина блока */
+  max-width: 96%;
+  /*автоматический перенос текста, чтобы текс 
+  поместился в заданную ширину блока*/
+  word-wrap: break-word;
+}
+
 input[type=checkbox] {
   margin: 0;
   font-size: 18px;
