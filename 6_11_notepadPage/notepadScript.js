@@ -198,12 +198,17 @@ function calcCompletedAndUnfulfilledTasks() {
   completedTasks.textContent = `выполненные - ${counterCompletedTasks}`;
   unfulfilledTasks.textContent = `невыполненные  - ${counterUnfulfilledTasks}`;
 
+  // константы с процентами
+  const twentyPercent = 0.2;
+  const eightyPercent = 0.8;
+  const ninetyPercent = 0.9;
+
   // Индикация выполненных задач
   mainIndicator.value = counterCompletedTasks;
-  mainIndicator.low = (collectionCheckbox.length * 0.2).toFixed(2);
-  mainIndicator.high = (collectionCheckbox.length * 0.8).toFixed(2);
+  mainIndicator.low = (collectionCheckbox.length * twentyPercent).toFixed(2);
+  mainIndicator.high = (collectionCheckbox.length * eightyPercent).toFixed(2);
   mainIndicator.max = collectionCheckbox.length;
-  mainIndicator.optimum = (collectionCheckbox.length * 0.9).toFixed(2);
+  mainIndicator.optimum = (collectionCheckbox.length * ninetyPercent).toFixed(2);
 
   /*запускаем фильтрующую функцию, чтобы при установки/снятии флажка,
   запись в блокноте моментально отфильтровывалась, а не ждала, пока
