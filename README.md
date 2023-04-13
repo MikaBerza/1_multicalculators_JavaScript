@@ -75,8 +75,11 @@
 2. Откройте Visual Studio Code;
 3. Добавьте папку "1_multicalculators_JavaScript" в рабочую область;
 4. Откройте раздел :open_file_folder:6_13_entrance, файл :page_facing_up:entranceIndex.html и запустите Live Server;
-5. Появится форма входа, которую нужно заполнить;
-6. Данные для заполнения полей:
+5. Появится форма входа, скопируйте из своей адресной строки ХОСТ и НОМЕР ПОРТА. Смотреть изображение №1;
+6. Изображение №1 ![alt text](./6_13_entrance/img/host-and-port-%20number_1.jpg)
+7. Откройте раздел :open_file_folder:8_linksMultiCalculators, файлы :page_facing_up: linksHeaderMultiCalculators.js и linksMultiCalculators.js, замените в этих файлах ХОСТ и НОМЕР ПОРТА на свой который вы скопировали из адресной строки;
+8. Теперь можно заполнить поля формы входа;
+9. Данные для заполнения полей:
 
 - Адрес эл.почты - Address@mail.ru
 - Пароль - Adr78\*#
