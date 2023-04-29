@@ -1,41 +1,36 @@
-/*активация строго режима*/
-'use strict';
-//
-//
-//
+// 'use strict';  отключил строгий режим по требованию eslint
 
-/*↓↓---------------------Раздел переменных-----------------------------------------↓↓*/
+/* ↓↓---------------------Раздел переменных-----------------------------------------↓↓ */
 // Считываем элементы li текущего показания Т1
 const currentReadingsT1 = document.getElementById(
-  'listOfCurrentItemsT1'
+  'listOfCurrentItemsT1',
 ).children;
 // Считываем элемент input текущего показания Т1
 const inputCurrentT1 = document.getElementById('inputCurrentT1');
 
 // Считываем элементы li предыдущего показания Т1
 const previousReadingsT1 = document.getElementById(
-  'listOfPreviousItemsT1'
+  'listOfPreviousItemsT1',
 ).children;
 // Считываем элемент input предыдущего показания Т1
 const inputPreviousT1 = document.getElementById('inputPreviousT1');
 
-/*↑↑---------------------Раздел переменных--------------------------------------------↑↑*/
+/* ↑↑---------------------Раздел переменных--------------------------------------------↑↑ */
 
-/*↓---------------------Раздел с общими функциями---------------------------------------↓*/
+/* ↓---------------------Раздел с общими функциями---------------------------------------↓ */
 // Ф1
 // Функция возвращает восьмеричный массив
 // с ввода текущих/предыдущих показаний (данных) счетчика
 function getOctalArray(dataCounter) {
   // Считываем строку
-  let str = dataCounter;
+  const str = dataCounter;
   // Делаем из строки массив
-  let arr = str.split('');
+  const arr = str.split('');
   if (arr.length === 8) {
     return arr;
-  } else {
-    console.log('В массиве МЕНЬШЕ 8 символов');
-    return ['null'];
   }
+  // console.log('В массиве МЕНЬШЕ 8 символов');
+  return ['null'];
 }
 
 // Ф2
@@ -44,7 +39,7 @@ function getOctalArray(dataCounter) {
 // если количество совпадений равно 8, то в инпут ввели все числа.
 function getNumberOfMatches(octalArray) {
   // Массив цифр с которыми сравнивается восьмеричный массив
-  let arrNum1 = '1234567890'.split('');
+  const arrNum1 = '1234567890'.split('');
   // Счетчик совпадений!
   // Если ввили все цифры, он будет равен 8.
   let counter = 0;
@@ -63,48 +58,42 @@ function getNumberOfMatches(octalArray) {
 // которые прошли проверку и являются числами
 function outputNewElementsLi(listLi, inputData) {
   // Восьмеричный массив из показаний счетчика
-  let octalArrayOfReadings = getOctalArray(inputData.value);
+  const octalArrayOfReadings = getOctalArray(inputData.value);
   // Число (количество) совпадений
-  let numberOfMatches = getNumberOfMatches(octalArrayOfReadings);
+  const numberOfMatches = getNumberOfMatches(octalArrayOfReadings);
 
-  console.log(octalArrayOfReadings);
-  console.log(numberOfMatches);
+  // console.log(octalArrayOfReadings);
+  // console.log(numberOfMatches);
 
   if (numberOfMatches === 8) {
-    console.log('+++ условие true');
+    // console.log('+++ условие true');
     for (let i = 0; i < octalArrayOfReadings.length; i++) {
       // присваиваем каждому элементу списка li
       // значение с инпута
-      listLi[i].innerHTML = octalArrayOfReadings[i];
+      // listLi[i].innerHTML = octalArrayOfReadings[i];
       inputData.classList.remove('bordTwo');
     }
   } else {
-    console.log('--- условие false');
+    // console.log('--- условие false');
     inputData.classList.add('bordTwo');
   }
 }
 
-
-
-/*↓↓---------------------Объединяющее все функции событие------------------------------------↓↓*/
+/* ↓↓---------------------Объединяющее все функции событие------------------------------------↓↓ */
 // При потери фокуса после ввода в инпут чисел,
 // эти числа автоматически появляются на счетчике №1 ХВС
 // т.е. в списке li
-inputCurrentT1.addEventListener('blur', function () {
+inputCurrentT1.addEventListener('blur', () => {
   outputNewElementsLi(currentReadingsT1, inputCurrentT1);
 });
 // При потери фокуса после ввода в инпут чисел,
 // эти числа автоматически появляются на счетчике №2 ХВС
 // т.е. в списке li
-inputPreviousT1.addEventListener('blur', function () {
+inputPreviousT1.addEventListener('blur', () => {
   outputNewElementsLi(previousReadingsT1, inputPreviousT1);
 });
-/*↑↑---------------------Объединяющее все функции событие------------------------------------↑↑*/
-
-
-
+/* ↑↑---------------------Объединяющее все функции событие------------------------------------↑↑ */
 
 // ==================ДОДЕЛАТЬ!=========ДОДЕЛАТЬ!==============ДОДЕЛАТЬ!=====
 // ==================ДОДЕЛАТЬ!=========ДОДЕЛАТЬ!==============ДОДЕЛАТЬ!=====
 // ==================ДОДЕЛАТЬ!=========ДОДЕЛАТЬ!==============ДОДЕЛАТЬ!=====
-
