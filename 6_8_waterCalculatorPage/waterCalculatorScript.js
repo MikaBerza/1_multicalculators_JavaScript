@@ -1,9 +1,6 @@
-/*активация строго режима*/
-'use strict';
-//
-//
-//
-/*↓↓---------------------Раздел переменных для ХВС-----------------------------------------↓↓*/
+// 'use strict';  отключил строгий режим по требованию eslint
+
+/* ↓↓---------------------Раздел переменных для ХВС-----------------------------------------↓↓ */
 // Считываем элементы li (текущие показания) ХВС счетчика
 const coldOneLi = document.getElementsByClassName('coldOneLi');
 // Считываем (текущие показания) с input ХВС счетчика
@@ -20,31 +17,30 @@ const coldInpWaterRate = document.querySelector('#coldInpWaterRate');
 const coldBtn = document.querySelector('#coldButton');
 // Считываем параграф куда будем выводить результат(стоимость, руб) по XВС счетчику
 const coldOutputOfCostResults = document.querySelector(
-  '#coldOutputOfCostResults'
+  '#coldOutputOfCostResults',
 );
 // Считываем параграф куда будем выводить результат(расхода, м3) по XВС счетчику
 const coldOutputOfExpenditureResults = document.querySelector(
-  '#coldOutputOfExpenditureResults'
+  '#coldOutputOfExpenditureResults',
 );
-/*↑↑---------------------Раздел переменных для ХВС-----------------------------------------↑↑*/
+/* ↑↑---------------------Раздел переменных для ХВС-----------------------------------------↑↑ */
 //
 //
 //
-/*↓---------------------Раздел с общими функциями---------------------------------------↓*/
+/* ↓---------------------Раздел с общими функциями---------------------------------------↓ */
 // Ф1
 // Функция возвращает восьмеричный массив
 // с ввода текущих/предыдущих показаний (данных) счетчика
 function getOctalArray(dataCounter) {
   // Считываем строку
-  let str = dataCounter;
+  const str = dataCounter;
   // Делаем из строки массив
-  let arr = str.split('');
+  const arr = str.split('');
   if (arr.length === 8) {
     return arr;
-  } else {
-    console.log('В массиве МЕНЬШЕ 8 символов');
-    return ['null'];
   }
+  // console.log('В массиве МЕНЬШЕ 8 символов');
+  return ['null'];
 }
 
 // Ф2
@@ -53,7 +49,7 @@ function getOctalArray(dataCounter) {
 // если количество совпадений равно 8, то в инпут ввели все числа.
 function getNumberOfMatches(octalArray) {
   // Массив цифр с которыми сравнивается восьмеричный массив
-  let arrNum1 = '1234567890'.split('');
+  const arrNum1 = '1234567890'.split('');
   // Счетчик совпадений!
   // Если ввили все цифры, он будет равен 8.
   let counter = 0;
@@ -72,15 +68,15 @@ function getNumberOfMatches(octalArray) {
 // которые прошли проверку и являются числами
 function outputNewElementsLi(listLi, inputData) {
   // Восьмеричный массив из показаний счетчика
-  let octalArrayOfReadings = getOctalArray(inputData.value);
+  const octalArrayOfReadings = getOctalArray(inputData.value);
   // Число (количество) совпадений
-  let numberOfMatches = getNumberOfMatches(octalArrayOfReadings);
+  const numberOfMatches = getNumberOfMatches(octalArrayOfReadings);
 
-  console.log(octalArrayOfReadings);
-  console.log(numberOfMatches);
+  // console.log(octalArrayOfReadings);
+  // console.log(numberOfMatches);
 
   if (numberOfMatches === 8) {
-    console.log('+++ условие true');
+    // console.log('+++ условие true');
     for (let i = 0; i < octalArrayOfReadings.length; i++) {
       // присваиваем каждому элементу списка li
       // значение с инпута
@@ -88,7 +84,7 @@ function outputNewElementsLi(listLi, inputData) {
       inputData.classList.remove('bordTwo');
     }
   } else {
-    console.log('--- условие false');
+    // console.log('--- условие false');
     inputData.classList.add('bordTwo');
   }
 }
@@ -100,26 +96,26 @@ function outputTheCostAndWaterConsumption(
   inpTwo,
   inpThree,
   outputOne,
-  outputTwo
+  outputTwo,
 ) {
   // Восьмеричный массив из текущих показаний счетчика
-  let octalArrayOfCurrentReadings = getOctalArray(inpOne.value);
+  const octalArrayOfCurrentReadings = getOctalArray(inpOne.value);
   // Восьмеричный массив из предыдущих показаний счетчика
-  let octalArrayOfPreviousReadings = getOctalArray(inpTwo.value);
+  const octalArrayOfPreviousReadings = getOctalArray(inpTwo.value);
   // Проверка восьмеричных массивов на числа (чтобы там небыло других символов)
   // Проверка на числа текущих показаний счетчика
-  let checkOne = getNumberOfMatches(octalArrayOfCurrentReadings);
+  const checkOne = getNumberOfMatches(octalArrayOfCurrentReadings);
   // Проверка на числа предыдущих показаний счетчика
-  let checkTwo = getNumberOfMatches(octalArrayOfPreviousReadings);
+  const checkTwo = getNumberOfMatches(octalArrayOfPreviousReadings);
   // Стоимость тарифа за воду
-  let tariffNumber = Number(inpThree.value);
+  const tariffNumber = Number(inpThree.value);
   // Результат
   let result = null;
 
   if (checkOne === 8 && checkTwo === 8) {
     // делаем из восьмеричного массива ЧИСЛО
-    let currentReadings = Number(octalArrayOfCurrentReadings.join(''));
-    let previousReadings = Number(octalArrayOfPreviousReadings.join(''));
+    const currentReadings = Number(octalArrayOfCurrentReadings.join(''));
+    const previousReadings = Number(octalArrayOfPreviousReadings.join(''));
 
     if (currentReadings < previousReadings) {
       // Класс и запись появляется если данные некорректны
@@ -128,52 +124,50 @@ function outputTheCostAndWaterConsumption(
       outputTwo.innerHTML = 'Данные некорректны!!!';
       outputTwo.classList.add('resultStyle');
     } else if (
-      currentReadings >= previousReadings &&
-      tariffNumber !== 0
+      currentReadings >= previousReadings
+      && tariffNumber !== 0
     ) {
       // т.к. счетчик восьмироликовый, первые 5 цифр это метры кубические,
       // а последнии 3 цифры это литры, чтобы производить вычитание
       // из одних и тех же условных вилечин, приводим значение нашего счетчика
       // к метрам кубическим деля его на 1000
-      result =
-        (currentReadings / 1000 - previousReadings / 1000) * tariffNumber;
+      result = (currentReadings / 1000 - previousReadings / 1000) * tariffNumber;
       // Появившиеся класс и запись исчезают если данные корректны
       outputOne.classList.remove('resultStyle');
       outputTwo.classList.remove('resultStyle');
       // Выводим стоимость
-      outputOne.innerHTML = 'Стоимость ' + result.toFixed(2) + ' ₽';
+      outputOne.innerHTML = `Стоимость ${result.toFixed(2)} ₽`;
       // Выводим расход
-      console.log(tariffNumber, 'ЭЭЭЭЭЭ');
-      outputTwo.innerHTML =
-        'Расход ' + (result / tariffNumber).toFixed(2) + ' м3';
+      // console.log(tariffNumber, 'ЭЭЭЭЭЭ');
+      outputTwo.innerHTML = `Расход ${(result / tariffNumber).toFixed(2)} м3`;
     }
   }
 }
-/*↑---------------------Раздел с общими функциями---------------------------------------↑*/
+/* ↑---------------------Раздел с общими функциями---------------------------------------↑ */
 //
 //
 //
-/*↓↓---------------------Раздел функций для ХВС-----------------------------------------↓↓*/
+/* ↓↓---------------------Раздел функций для ХВС-----------------------------------------↓↓ */
 // При потери фокуса после ввода в инпут чисел,
 // эти числа автоматически появляются на счетчике №1 ХВС
 // т.е. в списке li
-coldInpActual.addEventListener('blur', function () {
+coldInpActual.addEventListener('blur', () => {
   outputNewElementsLi(coldOneLi, coldInpActual);
 });
 // При потери фокуса после ввода в инпут чисел,
 // эти числа автоматически появляются на счетчике №2 ХВС
 // т.е. в списке li
-coldInpPrevious.addEventListener('blur', function () {
+coldInpPrevious.addEventListener('blur', () => {
   outputNewElementsLi(coldTwoLi, coldInpPrevious);
 });
 // По клику выводит стоимость и расход по счетчику ХВС
-coldBtn.addEventListener('click', function () {
+coldBtn.addEventListener('click', () => {
   outputTheCostAndWaterConsumption(
     coldInpActual,
     coldInpPrevious,
     coldInpWaterRate,
     coldOutputOfCostResults,
-    coldOutputOfExpenditureResults
+    coldOutputOfExpenditureResults,
   );
 });
-/*↑↑---------------------Раздел функций для ХВС-----------------------------------------↑↑*/
+/* ↑↑---------------------Раздел функций для ХВС-----------------------------------------↑↑ */
