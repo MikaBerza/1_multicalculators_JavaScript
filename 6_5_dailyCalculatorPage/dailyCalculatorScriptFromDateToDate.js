@@ -1,5 +1,4 @@
-/*активация строго режима*/
-'use strict';
+// 'use strict';  отключил строгий режим по требованию eslint
 
 // Считываем дату 'С которой рассчитать'
 const dateInputOne = document.getElementById('inputDateWith');
@@ -35,17 +34,17 @@ function calculateTheDifferenceBetweenDates() {
   // и возвращает количество миллисекунд с 1 января 1970 года.
   // В одном дне - 86400000мс
   // Преобразуем к дням и записываем в переменные
-  let dateWith = Date.parse(dateInputOne.value) / 86400000;
+  const dateWith = Date.parse(dateInputOne.value) / 86400000;
   // Проверяем что приходит
   // console.log(dateWith);
-  let dateBefore = Date.parse(dateInputTwo.value) / 86400000;
+  const dateBefore = Date.parse(dateInputTwo.value) / 86400000;
   // Проверяем что приходит
   // console.log(dateBefore);
   // Вычислим разницу дат
-  let diff = dateBefore - dateWith;
+  const diff = dateBefore - dateWith;
   // Запишем условия
   // Условие №1
-  if (isNaN(diff)) {
+  if (Number.isNaN(diff)) {
     formOutputs.setAttribute('class', openClassOne);
     dateInputOne.setAttribute('class', requirementOne);
     dateInputTwo.setAttribute('class', requirementOne);
@@ -69,7 +68,7 @@ function calculateTheDifferenceBetweenDates() {
     // Условие №4
   } else if (dateBefore === dateWith) {
     formOutputs.setAttribute('class', openClassFour);
-    formOutputs.innerHTML = `Время для счастья – сейчас!`;
+    formOutputs.innerHTML = 'Время для счастья – сейчас!';
   }
 }
 
@@ -77,7 +76,7 @@ function calculateTheDifferenceBetweenDates() {
 buttonСalculate.addEventListener('click', calculateTheDifferenceBetweenDates);
 
 // Вешаем событие blur вызывается когда элемент теряет фокус.
-buttonСalculate.addEventListener('blur', function () {
+buttonСalculate.addEventListener('blur', () => {
   // setAttribute()Метод устанавливает новое значение для атрибута
   formOutputs.setAttribute('class', closedClass);
   formOutputsImg.setAttribute('class', closedClass);

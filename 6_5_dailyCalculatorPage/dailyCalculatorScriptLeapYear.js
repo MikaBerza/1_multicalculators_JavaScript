@@ -1,9 +1,8 @@
-/*активация строго режима*/
-'use strict';
+// 'use strict';  отключил строгий режим по требованию eslint
 
 // Считываем введенное кол-во дней
 const inputYear = document.getElementById('inputYear');
-// Считываем кнопку расчитать
+// Считываем кнопку рассчитать
 const buttonСalculateYear = document.getElementById('btnСalculationYear');
 // Считываем форму вывода строки
 const formOutputsYear = document.getElementById('formOutputYear');
@@ -23,24 +22,24 @@ const formControlYear = 'form-control';
 
 // Функция определяет високосный год
 function defineALeapYear() {
-  let year = Number(inputYear.value);
-  let receivedDate = new Date(year, 2, 0);
+  const year = Number(inputYear.value);
+  const receivedDate = new Date(year, 2, 0);
   // Запишем условие №1
   if (
-    receivedDate.getDate() === 29 &&
-    inputYear.value.length <= 4 &&
-    inputYear.value.length !== 0
+    receivedDate.getDate() === 29
+    && inputYear.value.length <= 4
+    && inputYear.value.length !== 0
   ) {
     formOutputsYear.setAttribute('class', openClassYearYes);
-    formOutputsYear.innerHTML = `Високосный`;
+    formOutputsYear.innerHTML = 'Високосный';
     // Запишем условие №2
   } else if (
-    receivedDate.getDate() !== 29 &&
-    inputYear.value.length <= 4 &&
-    inputYear.value.length !== 0
+    receivedDate.getDate() !== 29
+    && inputYear.value.length <= 4
+    && inputYear.value.length !== 0
   ) {
     formOutputsYear.setAttribute('class', openClassYearNo);
-    formOutputsYear.innerHTML = `НЕвисокосный`;
+    formOutputsYear.innerHTML = 'НЕвисокосный';
     // Запишем условие №3
   } else if (inputYear.value.length > 4) {
     formOutputsYear.setAttribute('class', openClassErrorYear);
@@ -57,7 +56,7 @@ function defineALeapYear() {
 buttonСalculateYear.addEventListener('click', defineALeapYear);
 
 // Вешаем событие blur вызывается когда элемент теряет фокус.
-buttonСalculateYear.addEventListener('blur', function () {
+buttonСalculateYear.addEventListener('blur', () => {
   // setAttribute()Метод устанавливает новое значение для атрибута
   formOutputsYear.setAttribute('class', closedClassYear);
   inputYear.setAttribute('class', formControlYear);

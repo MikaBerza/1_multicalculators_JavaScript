@@ -1,10 +1,3 @@
-input {
-  margin-right: 10px;
-  border-radius: 4px;
-  /*уберем тень с input*/
-  border: none
-}
-
 h5 {
   padding-right: 10px;
   padding-top: 10px;
@@ -16,7 +9,7 @@ h5 {
   /* центрируем*/
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   text-align: center;
   background-image: url('/5_img/5_5_dailyCalculatorImg/dailyFon1.jpg');
@@ -52,8 +45,7 @@ h5 {
 
 .input-group {
   display: flex;
-  justify-content: center;
-  margin: 10px;
+  justify-content: space-evenly;
 }
 
 .input-group-text {
@@ -61,24 +53,16 @@ h5 {
   min-width: 90px;
 }
 
+.form1 {
+  border-radius: 0;
+}
+
 .form-control {
   display: flex;
+  justify-content: center;
   max-width: 400px;
 }
 
-.btn {
-  margin-right: 18px;
-}
-
-
-/* при ширине экрана меньше 337px делаем внешнии отступы 
-т.к. кнопка смещается под инпуты и налезает на них */
-@media (max-width:337px) {
-  .btn-success {
-    margin-top: 10px;
-    margin-right: 0px;
-  }
-}
 
 /* центрируем */
 .requirement {
@@ -215,4 +199,11 @@ h5 {
   letter-spacing: 0.5px;
   color: #0a7439;
   text-shadow: white 0.006em 0.006em 0.007em, #9c9c9c 1px 1px 1px, #9c9c9c 1px 2px 1px, #9c9c9c 1px 3px 1px, #9c9c9c 1px 4px 1px, #9c9c9c 1px 5px 1px, #9c9c9c 1px 6px 1px, #9c9c9c 1px 7px 1px, #9c9c9c 1px 8px 1px, #9c9c9c 1px 9px 1px, #9c9c9c 1px 10px 1px, #9c9c9c 1px 11px 1px, #9c9c9c 1px 12px 1px, rgba(16, 16, 16, 0.4) 1px 18px 6px, rgba(16, 16, 16, 0.2) 1px 22px 10px, rgba(16, 16, 16, 0.2) 1px 26px 35px, rgba(16, 16, 16, 0.4) 1px 30px 65px;
+}
+
+@media (max-width:360px) {
+  .input-group__v2 {
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
 }

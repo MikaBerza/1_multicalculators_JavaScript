@@ -1,8 +1,4 @@
-/*активация строго режима*/
-'use strict';
-// 
-// 
-// 
+// 'use strict';  отключил строгий режим по требованию eslint
 
 // Считываем введенное кол-во дней
 const inputDay = document.getElementById('inputDay');
@@ -26,25 +22,25 @@ const formControlDay = 'form-control';
 // Функция вычисляет количество дней с текущего дня
 function calculateTheNumberOfDaysFromTheCurrentDay() {
   // Текущая общая дата
-  let currentTotalDate = new Date();
+  const currentTotalDate = new Date();
   // Текущий год
-  let currentYear = currentTotalDate.getFullYear();
+  const currentYear = currentTotalDate.getFullYear();
   // Текущий месяц
-  let currentMonth = currentTotalDate.getMonth();
+  const currentMonth = currentTotalDate.getMonth();
   // Текущий день
-  let currentDay = currentTotalDate.getDate();
+  const currentDay = currentTotalDate.getDate();
   // Проверяем что приходит
   // console.log(currentDay);
   // Вводимое количество дней
-  let numberOfDaysEntered = Number(inputDay.value);
+  const numberOfDaysEntered = Number(inputDay.value);
   // Проверяем что приходит
   // console.log(numberOfDaysEntered);
-  /*Сумма между текущим днем и вводимым числом (ставим знак "+", т.к. если будет знак "-"
+  /* Сумма между текущим днем и вводимым числом (ставим знак "+", т.к. если будет знак "-"
   и пользователь решит ввести число с знаком "-", то функция отработает не так как мы
   планируем потому-что минус на минус даст плюс) */
-  let diff = currentDay + numberOfDaysEntered;
+  const diff = currentDay + numberOfDaysEntered;
   // Полученная дата
-  let receivedDate = new Date(currentYear, currentMonth, diff);
+  const receivedDate = new Date(currentYear, currentMonth, diff);
   /*------------------------------------------------------------------------*/
   // Массив дней недели
   const arrayOfDaysOfTheWeek = [
@@ -95,14 +91,14 @@ function calculateTheNumberOfDaysFromTheCurrentDay() {
   }
 }
 
-// Вешаем событие на кнопку для вычисления 
+// Вешаем событие на кнопку для вычисления
 buttonСalculateDay.addEventListener(
   'click',
-  calculateTheNumberOfDaysFromTheCurrentDay
+  calculateTheNumberOfDaysFromTheCurrentDay,
 );
 
 // Вешаем событие blur вызывается когда элемент теряет фокус
-buttonСalculateDay.addEventListener('blur', function () {
+buttonСalculateDay.addEventListener('blur', () => {
   // setAttribute()Метод устанавливает новое значение для атрибута
   formOutputsDay.setAttribute('class', closedClassDay);
   inputDay.setAttribute('class', formControlDay);
