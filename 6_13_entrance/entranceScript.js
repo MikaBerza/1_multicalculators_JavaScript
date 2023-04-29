@@ -33,7 +33,7 @@ entButton.addEventListener('click', function () {
     console.log('Данные правильные');
     console.log('Происходит переход!');
     // Переход на главную страницу (Домашнего калькулятора)
-    onclick = document.location.href = 'http://192.168.0.105:5500/6_0_mainPage/mainIndex.html';
+    onclick = document.location.href = 'http://192.168.1.101:5500/6_0_mainPage/mainIndex.html';
   } else if (
     inpAddress.value !== 'Address@mail.ru' &&
     inpPassword.value !== 'Adr78*#' &&

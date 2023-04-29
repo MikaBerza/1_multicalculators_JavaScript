@@ -2,16 +2,12 @@
 //
 //
 //
-const container = document.querySelector('.container');
-// console.log(container);
 const fact = document.querySelector('.card__fact');
 // console.log(fact);
 const img = document.querySelector('.card__img');
 // console.log(img);
-const imgNone = document.querySelector('.card__img-none');
-// console.log(imgNone);
-const urlCatPhoto = 'https://aws.random.cat/meow';
-// console.log(urlCatPhoto);
+
+// Cat Facts API
 const urlCatFact = 'https://catfact.ninja/fact';
 // console.log(urlCatFact);
 
@@ -28,38 +24,23 @@ const urlCatFact = 'https://catfact.ninja/fact';
 и выполнение кода продолжится. */
 
 // async await - асинхронное ожидание
-
 async function fetchHandler() {
   try {
     /*здесь храниться ответ от сервера, если бы не была написано 
     конструкция async await, то мы бы получали промис.*/
-    const responsePhoto = await fetch(urlCatPhoto);
     const responseFact = await fetch(urlCatFact);
-    // console.log(responsePhoto);
     // console.log(responseFact);
 
-    // чтобы получить тело ответа
-    const dataPhoto = await responsePhoto.json();
+    // поучаем тело ответа
     const dataFact = await responseFact.json();
-    // console.log(dataPhoto);
     // console.log(dataFact);
 
-    img.src = dataPhoto.file;
     fact.textContent = dataFact.fact;
   } catch (error) {
-    // если возникнет ошибка, то мы выведем картинку Ошибка загрузки!
-    img.src = '/5_img/5_6_factsAboutCats/loading_error.jpg';
+    // если возникнет ошибка, то мы выведем текст (Ошибка загрузки !!!)
     fact.textContent = 'Ошибка загрузки !!!';
     console.log(error);
   }
 }
 
-img.addEventListener('click', function () {
-  /*Проверьте, завершена ли загрузка изображения:
-  Если загрузка изображения завершена, свойство завершения возвращает значение true.
-  Если загрузка изображения не завершена, это свойство возвращает значение false.*/
-  if (img.complete) {
-    // если загрузка завершена, можем загружать следующую картинку
-    fetchHandler();
-  }
-});
+img.addEventListener('click', fetchHandler);
