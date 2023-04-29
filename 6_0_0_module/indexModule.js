@@ -1,10 +1,16 @@
-'use strict';
+// 'use strict';  отключил строгий режим по требованию eslint
 //
 //
 //
 
-/*-----Формула для проектов: 6_1_borschPage, 6_2_pancakesPage, 6_3_pilafPage---------------------------------*/
-function calculateNumberOfProducts(elemInput, elemProductsArr, elemQuantityArr, elemCellSalt, elemProductPerServing) {
+/* -----Формула для проектов: 6_1_borschPage, 6_2_pancakesPage, 6_3_pilafPage-------------------- */
+function calculateNumberOfProducts(
+  elemInput,
+  elemProductsArr,
+  elemQuantityArr,
+  elemCellSalt,
+  elemProductPerServing,
+) {
   for (let i = 0; i < elemProductsArr.length; i++) {
     if (elemInput.value === '' || elemInput.value[0] === '-' || elemInput.value.length > 3) {
       // Инпут изменяется если в него вводят не числовое значение
@@ -15,11 +21,11 @@ function calculateNumberOfProducts(elemInput, elemProductsArr, elemQuantityArr, 
       elemQuantityArr[i].innerHTML = 0;
       elemCellSalt.innerHTML = 0;
     } else {
-      // формула для заполнения ячеек в колонке 'Колличество'
-      elemQuantityArr[i].innerHTML = (Number(elemInput.value) * elemProductPerServing[elemProductsArr[i].innerHTML]).toFixed(2);
+      // формула для заполнения ячеек в колонке 'Количество'
+      elemQuantityArr[i].innerHTML = (Number(elemInput.value)
+      * elemProductPerServing[elemProductsArr[i].innerHTML]).toFixed(2);
       elemCellSalt.innerHTML = 'по вкусу';
     }
   }
 }
-
 export default calculateNumberOfProducts;
