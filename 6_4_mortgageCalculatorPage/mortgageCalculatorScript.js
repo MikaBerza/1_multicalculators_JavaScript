@@ -1,5 +1,4 @@
-/*активация строго режима*/
-'use strict';
+// 'use strict';  отключил строгий режим по требованию eslint
 
 // Получаем NodeList с элементами Флажков ввода input
 // (Банковские процентные ставки, Собственные процентные ставки)
@@ -22,7 +21,7 @@ const labelTextPercent = document.querySelectorAll('.form-check-label-centre');
 // Получаем NodeList с элементами вывода для правого столбца под иконкой (USBank)
 const outputColNumber = document.querySelectorAll('.col__number');
 
-/*↓------------------Вспомогательные функции---------------------------------------------------------↓*/
+/* ↓------------------Вспомогательные функции---------------------------------------------------↓ */
 // Изначально элементы для выбора и расчета неактивны(функция createInactiveElements()
 function createInactiveElements() {
   for (let i = 0; i < inputRange.length; i++) {
@@ -40,24 +39,26 @@ function createInactiveElements() {
 }
 createInactiveElements();
 
-/*Функция устанавливает зависимость первоначального взноса от 
+/* Функция устанавливает зависимость первоначального взноса от
 стоимости недвижимости. Первоначальный взнос должен быть не менее 30%
 и не более 100% от стоимости недвижимости.
-Рассчитать первоначальный взнос*/
+Рассчитать первоначальный взнос */
 function calculateTheInitialPayment() {
   // стоимость недвижимости
-  let theCostOfRealEstate = Number(inputRange[1].value);
+  const theCostOfRealEstate = Number(inputRange[1].value);
   // минимальный первоначальный взнос (30%)
-  let minInitialPayment = (theCostOfRealEstate * 0.3).toFixed(0);
+  const minInitialPayment = (theCostOfRealEstate * 0.3).toFixed(0);
   // первоначальный взнос
-  let initialPayment = Number(inputRange[2].value);
+  const initialPayment = Number(inputRange[2].value);
 
   if (initialPayment > theCostOfRealEstate) {
     inputRange[2].value = theCostOfRealEstate;
+    // eslint-disable-next-line no-use-before-define
     labelRange[2].textContent = divideNumberByTheDischarge(theCostOfRealEstate);
   }
   if (Number(inputRange[2].value) < minInitialPayment) {
     inputRange[2].value = minInitialPayment;
+    // eslint-disable-next-line no-use-before-define
     labelRange[2].textContent = divideNumberByTheDischarge(minInitialPayment);
   }
 }
@@ -65,23 +66,31 @@ function calculateTheInitialPayment() {
 // С помощью цикла добираемся до каждого элемента диапазона
 for (let i = 0; i < inputRange.length; i++) {
   // ловим событие для каждого диапазона
-  inputRange[i].addEventListener('input', function () {
+  inputRange[i].addEventListener('input', function changeTheTextOfTheRangeValue() {
     // запускаем функцию
     calculateTheInitialPayment();
     // изменяем текст значения диапазона
+    // eslint-disable-next-line no-use-before-define
     labelRange[i].innerHTML = divideNumberByTheDischarge(this.value);
   });
 }
 
-/*Функции разделяет число на разряды пробелом. Берем целую часть числа 
-и в цикле проходится каждый разряд от старшего к младшему. Если порядковый номер 
-разряда делится на 3 (кроме самого старшего), тогда производится добавление пробела. 
-Таким образом, после 3, 6, 9 и т.д. разрядов появятся пробелы. 
-Разделить число на разряды*/
+/* Функции разделяет число на разряды пробелом. Берем целую часть числа
+и в цикле проходится каждый разряд от старшего к младшему. Если порядковый номер
+разряда делится на 3 (кроме самого старшего), тогда производится добавление пробела.
+Таким образом, после 3, 6, 9 и т.д. разрядов появятся пробелы.
+Разделить число на разряды */
 function divideNumberByTheDischarge(number) {
-  let parts = (number + '').split('.');
-  let main = parts[0];
-  let len = main.length;
+  // нулевая строка
+  const nullString = '';
+  // строка с одним пробелом
+  const stringWithOneSpace = ' ';
+  // строка с точкой
+  const stringWithDot = '.';
+
+  const parts = (number + nullString).split(stringWithDot);
+  const main = parts[0];
+  const len = main.length;
   let output = '';
   let i = len - 1;
 
@@ -89,22 +98,23 @@ function divideNumberByTheDischarge(number) {
     // метод charAt() возвращает символ по заданному индексу внутри строки.
     output = main.charAt(i) + output;
     if ((len - i) % 3 === 0 && i > 0) {
-      output = ' ' + output;
+      output = stringWithOneSpace + output;
     }
     --i;
   }
 
   if (parts.length > 1) {
-    output += '.' + parts[1];
+    output += stringWithDot + parts[1];
   }
   return output;
 }
 
 // Изначально элементы для вывода результатов в правом столбце под иконкой (USBank)
 // установлены по умолчанию
+// функция устанавливает стандартные входные значения
 function setStandardOutputValues() {
-  for (let elem of outputColNumber) {
-    elem.innerHTML = elem.dataset.value;
+  for (let i = 0; i < outputColNumber.length; i++) {
+    outputColNumber[i].innerHTML = outputColNumber[i].dataset.value;
   }
 }
 setStandardOutputValues();
@@ -142,7 +152,7 @@ function createActiveElementsOwnBet() {
 // Функция добавляет (активирует) класс со стилем для элементов Переключателей
 function addClass() {
   for (let i = 0; i < labelTextPercent.length; i++) {
-    inputArrayFlagSwitches[i].addEventListener('click', function () {
+    inputArrayFlagSwitches[i].addEventListener('click', () => {
       if (inputArrayFlagSwitches[i].checked === true) {
         labelTextPercent[i].classList.add('active-text');
       } else {
@@ -158,22 +168,23 @@ function deleteClass() {
     labelTextPercent[i].classList.remove('active-text');
   }
 }
-/*↑------------------Вспомогательные функции---------------------------------------------------------↑*/
+/* ↑------------------Вспомогательные функции---------------------------------------------------↑ */
 
-/*↓↓-----------------Функции для расчета при акт.флажке (Собственная годовая % ставка)--------------↓↓*/
+/* ↓↓--------------Функции для расчета при акт.флажке (Собственная годовая % ставка)-----------↓↓ */
 // [0]Функция вычисляет число суммы кредита
 function calcLoanAmount() {
-  let priceRealEstate = Number(inputRange[1].value);
-  let initialPayment = Number(inputRange[2].value);
+  const priceRealEstate = Number(inputRange[1].value);
+  const initialPayment = Number(inputRange[2].value);
 
-  let loanAmount = priceRealEstate - initialPayment;
+  const loanAmount = priceRealEstate - initialPayment;
   outputColNumber[0].innerHTML = divideNumberByTheDischarge(loanAmount);
   return loanAmount;
 }
 
-// [1]Функция возвращает число годовой процентной ставки (при акт. галочке - Собственная годовая % ставка)
+// [1]Функция возвращает число годовой процентной ставки
+// (при акт. галочке - Собственная годовая % ставка)
 function getDigitAnnualInterestRateRight() {
-  let result = inputRange[0].value;
+  const result = inputRange[0].value;
   outputColNumber[1].innerHTML = result;
   return Number(result);
 }
@@ -181,13 +192,14 @@ function getDigitAnnualInterestRateRight() {
 // [2]Функция вычисляет число ежемесячного платежа
 function calcMonthlyPaymentRight() {
   // сумма кредита
-  let s = calcLoanAmount();
+  const s = calcLoanAmount();
   // ежемесячная процентная ставка
-  let i = calcMonthlyInterestRateRight();
+  // eslint-disable-next-line no-use-before-define
+  const i = calcMonthlyInterestRateRight();
   // срок на который берется кредит (в месяцах)
-  let n = Number(inputRange[3].value) * 12;
+  const n = Number(inputRange[3].value) * 12;
 
-  let result = s * (i + i / ((1 + i) ** n - 1));
+  const result = s * (i + i / ((1 + i) ** n - 1));
   outputColNumber[2].innerHTML = divideNumberByTheDischarge(result.toFixed(3));
   return result;
 }
@@ -195,7 +207,7 @@ function calcMonthlyPaymentRight() {
 // [3]Функция вычисляет число ежемесячной процентной ставки
 function calcMonthlyInterestRateRight() {
   // ежемесячная процентная ставка
-  let monthlyRate = getDigitAnnualInterestRateRight() / 100 / 12;
+  const monthlyRate = getDigitAnnualInterestRateRight() / 100 / 12;
   outputColNumber[3].innerHTML = monthlyRate.toFixed(4);
   return monthlyRate;
 }
@@ -203,12 +215,12 @@ function calcMonthlyInterestRateRight() {
 // [4]Функция вычисляет сумму, которая идет на погашение процентов
 function calcInterestRepaymentAmountRight() {
   // сумма оставшейся задолженности по кредиту, т.е. остаток
-  let sn = calcLoanAmount();
+  const sn = calcLoanAmount();
   // ежемесячная процентная ставка
-  let i = calcMonthlyInterestRateRight();
-  let interestRepaymentAmount = sn * i;
+  const i = calcMonthlyInterestRateRight();
+  const interestRepaymentAmount = sn * i;
   outputColNumber[4].innerHTML = divideNumberByTheDischarge(
-    interestRepaymentAmount.toFixed(3)
+    interestRepaymentAmount.toFixed(3),
   );
   return interestRepaymentAmount;
 }
@@ -216,12 +228,12 @@ function calcInterestRepaymentAmountRight() {
 // [5]функция вычисляет сумму, которая идет на погашение тела кредита
 function calcRepaymentAmountLoanBodyRight() {
   // число ежемесячного платежа
-  let p = calcMonthlyPaymentRight();
+  const p = calcMonthlyPaymentRight();
   // сумму, которая идет на погашение процентов
-  let inn = calcInterestRepaymentAmountRight();
-  let repaymentAmountLoanBody = p - inn;
+  const inn = calcInterestRepaymentAmountRight();
+  const repaymentAmountLoanBody = p - inn;
   outputColNumber[5].innerHTML = divideNumberByTheDischarge(
-    repaymentAmountLoanBody.toFixed(3)
+    repaymentAmountLoanBody.toFixed(3),
   );
   return repaymentAmountLoanBody;
 }
@@ -229,9 +241,9 @@ function calcRepaymentAmountLoanBodyRight() {
 // функция запускает другие функции для расчета по собственной процентной ставке
 function calcAtOwnInterestRate() {
   for (let i = 0; i < inputRange.length; i++) {
-    //[0]Функция вычисляет число суммы кредита
+    // [0]Функция вычисляет число суммы кредита
     inputRange[i].addEventListener('click', calcLoanAmount);
-    //[1]Функция возвращает число годовой процентной ставки
+    // [1]Функция возвращает число годовой процентной ставки
     inputRange[i].addEventListener('click', getDigitAnnualInterestRateRight);
     // [2]Функция вычисляет число ежемесячного платежа
     inputRange[i].addEventListener('click', calcMonthlyPaymentRight);
@@ -243,22 +255,23 @@ function calcAtOwnInterestRate() {
     inputRange[i].addEventListener('click', calcRepaymentAmountLoanBodyRight);
   }
 }
-/*↑↑-------------Функции для расчета при акт.флажке (Собственная годовая % ставка)------------------↑↑*/
+/* ↑↑----------Функции для расчета при акт.флажке (Собственная годовая % ставка)---------------↑↑ */
 
-/*↓↓-------------Функции для расчета при акт.флажке (Банковская годовая % ставка)-------------------↓↓*/
+/* ↓↓----------Функции для расчета при акт.флажке (Банковская годовая % ставка)----------------↓↓ */
 // [0]Функция вычисляет число суммы кредита
 // calcLoanAmount() эту функцию перепременил
 
-// [1]Функция возвращает число годовой процентной ставки (при акт. галочке - Банковская годовая % ставка)
+// [1]Функция возвращает число годовой процентной ставки
+// (при акт. галочке - Банковская годовая % ставка)
 // из выпадающего списка, с учетом услуг, снижающих ставку по кредиту
 function getDigitAnnualInterestRateLeft() {
   // Ставка из выпадающего списка
-  let betFromList = dropDownList[dropDownList.selectedIndex].value;
+  const betFromList = dropDownList[dropDownList.selectedIndex].value;
   // Результат с учетом снижающих ставок
   let result = 0;
   // Суммарное число услуг, снижающих ставку по кредиту
   let sum = 0;
-  // С помощью цыкла добираемся до каждой услуги и суммируем их
+  // С помощью цикла добираемся до каждой услуги и суммируем их
   for (let i = 0; i < inputArrayFlagSwitches.length; i++) {
     if (inputArrayFlagSwitches[i].checked === true) {
       sum += Number(inputArrayFlagSwitches[i].value);
@@ -274,13 +287,14 @@ function getDigitAnnualInterestRateLeft() {
 // [2]Функция вычисляет число ежемесячного платежа
 function calcMonthlyPaymentLeft() {
   // сумма кредита
-  let s = calcLoanAmount();
+  const s = calcLoanAmount();
   // ежемесячная процентная ставка
-  let i = calcMonthlyInterestRateLeft();
+  // eslint-disable-next-line no-use-before-define
+  const i = calcMonthlyInterestRateLeft();
   // срок на который берется кредит (в месяцах)
-  let n = Number(inputRange[3].value) * 12;
+  const n = Number(inputRange[3].value) * 12;
 
-  let result = s * (i + i / ((1 + i) ** n - 1));
+  const result = s * (i + i / ((1 + i) ** n - 1));
   outputColNumber[2].innerHTML = divideNumberByTheDischarge(result.toFixed(3));
   return result;
 }
@@ -288,7 +302,7 @@ function calcMonthlyPaymentLeft() {
 // [3]Функция вычисляет число ежемесячной процентной ставки
 function calcMonthlyInterestRateLeft() {
   // ежемесячная процентная ставка
-  let monthlyRate = getDigitAnnualInterestRateLeft() / 100 / 12;
+  const monthlyRate = getDigitAnnualInterestRateLeft() / 100 / 12;
   outputColNumber[3].innerHTML = monthlyRate.toFixed(4);
   return monthlyRate;
 }
@@ -296,12 +310,12 @@ function calcMonthlyInterestRateLeft() {
 // [4]Функция вычисляет сумму, которая идет на погашение процентов
 function calcInterestRepaymentAmountLeft() {
   // сумма оставшейся задолженности по кредиту, т.е. остаток
-  let sn = calcLoanAmount();
+  const sn = calcLoanAmount();
   // ежемесячная процентная ставка
-  let i = calcMonthlyInterestRateLeft();
-  let interestRepaymentAmount = sn * i;
+  const i = calcMonthlyInterestRateLeft();
+  const interestRepaymentAmount = sn * i;
   outputColNumber[4].innerHTML = divideNumberByTheDischarge(
-    interestRepaymentAmount.toFixed(3)
+    interestRepaymentAmount.toFixed(3),
   );
   return interestRepaymentAmount;
 }
@@ -309,12 +323,12 @@ function calcInterestRepaymentAmountLeft() {
 // [5]функция вычисляет сумму, которая идет на погашение тела кредита
 function calcRepaymentAmountLoanBodyLeft() {
   // число ежемесячного платежа
-  let p = calcMonthlyPaymentLeft();
+  const p = calcMonthlyPaymentLeft();
   // сумму, которая идет на погашение процентов
-  let inn = calcInterestRepaymentAmountLeft();
-  let repaymentAmountLoanBody = p - inn;
+  const inn = calcInterestRepaymentAmountLeft();
+  const repaymentAmountLoanBody = p - inn;
   outputColNumber[5].innerHTML = divideNumberByTheDischarge(
-    repaymentAmountLoanBody.toFixed(3)
+    repaymentAmountLoanBody.toFixed(3),
   );
   return repaymentAmountLoanBody;
 }
@@ -334,51 +348,51 @@ function calcAtBankInterestRate() {
     Но в строгом режиме('use strict') --- (Объект this) ---Выдает ошибку!
     Делаю по другому)))!
     */
-    //[0]Функция вычисляет число суммы кредита
+    // [0]Функция вычисляет число суммы кредита
     inputRange[i].addEventListener('click', calcLoanAmount);
-    //[1]Функция возвращает число годовой процентной ставки
+    // [1]Функция возвращает число годовой процентной ставки
     dropDownList.addEventListener('click', getDigitAnnualInterestRateLeft);
     inputArrayFlagSwitches[i].addEventListener(
       'click',
-      getDigitAnnualInterestRateLeft
+      getDigitAnnualInterestRateLeft,
     );
-    //[2]Функция вычисляет число ежемесячного платежа
+    // [2]Функция вычисляет число ежемесячного платежа
     inputRange[i].addEventListener('click', calcMonthlyPaymentLeft);
     dropDownList.addEventListener('click', calcMonthlyPaymentLeft);
     inputArrayFlagSwitches[i].addEventListener('click', calcMonthlyPaymentLeft);
-    //[3]Функция вычисляет число ежемесячной процентной ставки
+    // [3]Функция вычисляет число ежемесячной процентной ставки
     dropDownList.addEventListener('click', calcMonthlyInterestRateLeft);
     inputArrayFlagSwitches[i].addEventListener(
       'click',
-      calcMonthlyInterestRateLeft
+      calcMonthlyInterestRateLeft,
     );
-    //[4]Функция вычисляет сумму, которая идет на погашение процентов
+    // [4]Функция вычисляет сумму, которая идет на погашение процентов
     inputRange[i].addEventListener('click', calcInterestRepaymentAmountLeft);
     dropDownList.addEventListener('click', calcInterestRepaymentAmountLeft);
     inputArrayFlagSwitches[i].addEventListener(
       'click',
-      calcInterestRepaymentAmountLeft
+      calcInterestRepaymentAmountLeft,
     );
     // [5]функция вычисляет сумму, которая идет на погашение тела кредита
     inputRange[i].addEventListener('click', calcRepaymentAmountLoanBodyLeft);
     dropDownList.addEventListener('click', calcRepaymentAmountLoanBodyLeft);
     inputArrayFlagSwitches[i].addEventListener(
       'click',
-      calcRepaymentAmountLoanBodyLeft
+      calcRepaymentAmountLoanBodyLeft,
     );
   }
 }
-/*↑↑-------------Функции для расчета при акт.флажке (Банковская годовая % ставка)-------------------↑↑*/
+/* ↑↑----------Функции для расчета при акт.флажке (Банковская годовая % ставка)----------------↑↑ */
 
-/*↓↓↓------------Результирующая функции------------------------------------------------------------↓↓↓*/
+/* ↓↓↓---------Результирующая функции---------------------------------------------------------↓↓↓ */
 // функция определяет по какой ставки будет производиться расчет
 // по Банковской годовой % ставки или по Собственной годовой % ставки
 function determinesToBeCalculated() {
   for (let i = 0; i < inputArrayCheckbox.length; i++) {
-    inputArrayCheckbox[i].addEventListener('click', function () {
+    inputArrayCheckbox[i].addEventListener('click', () => {
       if (inputArrayCheckbox[0].checked === true) {
         // Проверяем
-        console.log('Выбран левый флажек');
+        // console.log('Выбран левый флажек');
         // Элементы активны при выборе левого влажка (Банковская годовая % ставка)
         createActiveElementsBankBet();
         // Функция добавляет (активирует) класс со стилем для элементов Переключателей
@@ -386,13 +400,13 @@ function determinesToBeCalculated() {
         // функция запускает другие функции для расчета по банковской процентной стваке
         calcAtBankInterestRate();
       } else if (inputArrayCheckbox[1].checked === true) {
-        console.log('Выбран правый флажек');
+        // console.log('Выбран правый флажек');
         // Элементы активны при выборе правого влажка (Собственная годовая % ставка)
         createActiveElementsOwnBet();
         // функция запускает другие функции для расчета по собственной процентной стваке
         calcAtOwnInterestRate();
       } else {
-        console.log('Флажки не выбраны');
+        // console.log('Флажки не выбраны');
         // Делаем активными (правый и левый флажки)
         inputArrayCheckbox[0].removeAttribute('disabled');
         inputArrayCheckbox[1].removeAttribute('disabled');
@@ -407,4 +421,4 @@ function determinesToBeCalculated() {
   }
 }
 determinesToBeCalculated();
-/*↑↑↑------------Результирующая функции------------------------------------------------------------↑↑↑*/
+/* ↑↑↑---------Результирующая функции---------------------------------------------------------↑↑↑ */
