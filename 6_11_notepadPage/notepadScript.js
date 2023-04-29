@@ -1,65 +1,65 @@
-/*активация строго режима*/
-'use strict';
+// 'use strict';  отключил строгий режим по требованию eslint
 
-//___Считываем textarea для записи/редактирования
-let mainTextarea = document.querySelector('.main__textarea');
-//___Считываем button для добавления записи
-let mainBtn = document.querySelector('.main__button');
-//___Считываем маркированный список ul
-let elementUl = document.querySelector('.main__numbered-list');
-//___Считываем input для поиска
-let inpSearchElem = document.querySelector('.main__input-search');
-//___Считываем meter для отображения индикатора выполненных задач
-let mainIndicator = document.querySelector('.main__counter-indicator');
-//___Считываем элемент select*/
-let selectElem = document.querySelector('.main__filtering-select');
+// ___Считываем textarea для записи/редактирования
+const mainTextarea = document.querySelector('.main__textarea');
+// ___Считываем button для добавления записи
+const mainBtn = document.querySelector('.main__button');
+// ___Считываем маркированный список ul
+const elementUl = document.querySelector('.main__numbered-list');
+// ___Считываем input для поиска
+const inpSearchElem = document.querySelector('.main__input-search');
+// ___Считываем meter для отображения индикатора выполненных задач
+const mainIndicator = document.querySelector('.main__counter-indicator');
+// ___Считываем элемент select*/
+const selectElem = document.querySelector('.main__filtering-select');
 
-//___Массив с элементами списка
-let arrayListItems = [];
+// ___Массив с элементами списка
+const arrayListItems = [];
 // Переменная состояния, для манипулирования функцией редактирования (editNote)
 let condition;
 
-/*Объявляем переменную, которая будет хранить
-дату в формате (дд/мм/гг, чч.мм) и перезаписываться*/
+/* Объявляем переменную, которая будет хранить
+дату в формате (дд/мм/гг, чч.мм) и перезаписываться */
 let recordingDate;
-/*Объявляем переменную, которая будет хранить 
-HTMLCollection(массивоподобная коллекция) из элементов списка li*/
+/* Объявляем переменную, которая будет хранить
+HTMLCollection(массивоподобная коллекция) из элементов списка li */
 let collectionLi;
-/*Объявляем переменную, которая будет хранить 
+/* Объявляем переменную, которая будет хранить
 HTMLCollection(массивоподобная коллекция) из элементов span
-c классом (main__list-item-text)*/
+c классом (main__list-item-text) */
 let collectionText;
-/*Объявляем переменную, которая будет хранить 
+/* Объявляем переменную, которая будет хранить
 HTMLCollection(массивоподобная коллекция) из элементов input
-c классом (main__list-item-checkbox)*/
+c классом (main__list-item-checkbox) */
 let collectionCheckbox;
-/*Объявляем переменную, которая будет хранить 
+/* Объявляем переменную, которая будет хранить
 HTMLCollection(массивоподобная коллекция) из элементов span
-c классом (main__list-item-close)*/
+c классом (main__list-item-close) */
 let collectionClose;
 
-/*______________Проверка записей на повторение____________________________*/
-/*___функция проверяет на повторение, введенную запись в textarea с уже 
-  существующими записями в блокноте*/
+/* ______________Проверка записей на повторение____________________________  */
+/* ___функция проверяет на повторение, введенную запись в textarea с уже
+  существующими записями в блокноте */
 function checkEntriesForRepetition() {
   // Метод includes проверяет наличие элемента в массиве.
   // true - элемент есть
   // false - элемента нет
-  let result = arrayListItems.includes(mainTextarea.value.trim());
+  const result = arrayListItems.includes(mainTextarea.value.trim());
   if (result === false) {
     arrayListItems.push(mainTextarea.value.trim());
-  } else {
-    console.log('Элемент уже существует в списке');
   }
+  // else {
+  //   console.log('Элемент уже существует в списке');
+  // }
   return result;
 }
 
-/*______________Добавление нового элемента________________________________*/
-/*___функция добавляет новую запись в нумерованный список*/
+/* ______________Добавление нового элемента________________________________ */
+/* ___функция добавляет новую запись в нумерованный список */
 function addNewElementList() {
   // Метод createElement позволяет создать новый элемент,
   // передав в параметре имя тега.
-  let liElem = document.createElement('li');
+  const liElem = document.createElement('li');
   // для элемента <li> назначаем класс "main__list-item",
   // который в дальнейшем будем стилизовать
   // метод add объекта classList позволяет добавлять CSS классы элементу
@@ -67,13 +67,13 @@ function addNewElementList() {
 
   // Метод createElement позволяет создать новый элемент,
   // передав в параметре имя тега
-  let divElem1 = document.createElement('div');
-  let spanElem1 = document.createElement('span');
-  let inputElem1 = document.createElement('input');
+  const divElem1 = document.createElement('div');
+  const spanElem1 = document.createElement('span');
+  const inputElem1 = document.createElement('input');
 
-  let divElem2 = document.createElement('div');
-  let spanElem2 = document.createElement('span');
-  let spanElem3 = document.createElement('span');
+  const divElem2 = document.createElement('div');
+  const spanElem2 = document.createElement('span');
+  const spanElem3 = document.createElement('span');
 
   // дата записи
   recordingDate = new Date(Date.now()).toLocaleDateString('en-GB', {
@@ -84,11 +84,11 @@ function addNewElementList() {
     year: '2-digit',
   });
   // Создаёт новый текстовый узел с заданным текстом:
-  let dateElem1 = document.createTextNode(recordingDate);
+  const dateElem1 = document.createTextNode(recordingDate);
   // Создаёт новый текстовый узел с заданным текстом:
-  let crossElem2 = document.createTextNode('x');
+  const crossElem2 = document.createTextNode('x');
 
-  /*для элементов назначаем классы
+  /* для элементов назначаем классы
   Метод add объекта classList позволяет добавлять CSS классы элементу. */
   divElem1.classList.add('main__list-item-block1');
   spanElem1.classList.add('main__list-item-text');
@@ -102,16 +102,16 @@ function addNewElementList() {
   inputElem1.setAttribute('type', 'checkbox');
 
   /* Во внутрь тега <div> вставляем заданный текст.
-      Метод appendChild позволяет вставить в конец какого-либо другой элемент*/
+      Метод appendChild позволяет вставить в конец какого-либо другой элемент */
   divElem1.appendChild(spanElem1);
   divElem1.appendChild(inputElem1);
 
   /* Во внутрь тега <div> вставляем заданный текст.
-      Метод appendChild позволяет вставить в конец какого-либо другой элемент*/
+      Метод appendChild позволяет вставить в конец какого-либо другой элемент */
   divElem2.appendChild(spanElem2);
   divElem2.appendChild(spanElem3);
   /* Во внутрь тега <span> вставляем заданный текст.
-      Метод appendChild позволяет вставить в конец какого-либо другой элемент*/
+      Метод appendChild позволяет вставить в конец какого-либо другой элемент */
   spanElem2.appendChild(dateElem1);
   spanElem3.appendChild(crossElem2);
 
@@ -124,34 +124,34 @@ function addNewElementList() {
   liElem.appendChild(divElem1);
   liElem.appendChild(divElem2);
   /* Во внутрь тега <ul> вставляем тег <li>.
-    Метод appendChild позволяет вставить в конец какого-либо другой элемент*/
+    Метод appendChild позволяет вставить в конец какого-либо другой элемент */
   elementUl.appendChild(liElem);
 }
 
-/*______________Поиск элементов___________________________________________*/
-//___функция поиска элементов в списке
+/* ______________Поиск элементов___________________________________________ */
+// ___функция поиска элементов в списке
 function search() {
   // переводим вводимою строку в верхний регистр
-  let str = inpSearchElem.value.toUpperCase();
-  /*Берем HTMLCollection элементов li списка ul, проходим по ним циклом, сравнивая их с
-   переменной str предварительно переводя в верхний регистр.*/
+  const str = inpSearchElem.value.toUpperCase();
+  /* Берем HTMLCollection элементов li списка ul, проходим по ним циклом, сравнивая их с
+   переменной str предварительно переводя в верхний регистр */
   for (let i = 0; i < collectionLi.length; i++) {
     if (collectionText[i].textContent.toUpperCase().indexOf(str) > -1) {
-      /*Если совпадение в строке найдено, 
+      /* Если совпадение в строке найдено,
       показываем элемент.
-      Эквивалентно записи <li style="display: '' "></li>*/
+      Эквивалентно записи <li style="display: '' "></li> */
       collectionLi[i].style.display = '';
     } else {
-      /*Если совпадение в строке не найдено, 
+      /* Если совпадение в строке не найдено,
       не показываем элемент.
-      Эквивалентно записи <li style="display: none"></li>*/
+      Эквивалентно записи <li style="display: none"></li> */
       collectionLi[i].style.display = 'none';
     }
   }
 }
 
-/*______________Фильтрация________________________________________________*/
-//___функция фильтрует записи в блокноте
+/* ______________Фильтрация________________________________________________ */
+// ___функция фильтрует записи в блокноте
 function getFilteredItems() {
   if (selectElem.value === 'Все') {
     // console.log('Все');
@@ -181,19 +181,23 @@ function getFilteredItems() {
   }
 }
 
-/*______________Счетчик выполненных/НЕвыполненных задач__________________*/
-//___функция вычисляет количество выполненных и невыполненных задач
+/* ______________Счетчик выполненных/НЕвыполненных задач__________________ */
+// ___функция вычисляет количество выполненных и невыполненных задач
 function calcCompletedAndUnfulfilledTasks() {
-  //___Считываем элемент <span> (выполненные задачи)
-  let completedTasks = document.querySelector('.main__counter-text-done');
-  //___Считываем элемент <span> (НЕвыполненные задачи)
-  let unfulfilledTasks = document.querySelector('.main__counter-text-notDone');
+  // ___Считываем элемент <span> (выполненные задачи)
+  const completedTasks = document.querySelector('.main__counter-text-done');
+  // ___Считываем элемент <span> (НЕвыполненные задачи)
+  const unfulfilledTasks = document.querySelector('.main__counter-text-notDone');
   // переменные (счетчики выполненных/невыполненных задач)
   let counterCompletedTasks = 0;
   let counterUnfulfilledTasks = 0;
 
-  for (let elem of collectionCheckbox) {
-    elem.checked ? counterCompletedTasks++ : counterUnfulfilledTasks++;
+  for (let i = 0; i < collectionCheckbox.length; i++) {
+    if (collectionCheckbox[i].checked) {
+      counterCompletedTasks++;
+    } else {
+      counterUnfulfilledTasks++;
+    }
   }
   completedTasks.textContent = `выполненные - ${counterCompletedTasks}`;
   unfulfilledTasks.textContent = `невыполненные  - ${counterUnfulfilledTasks}`;
@@ -210,28 +214,28 @@ function calcCompletedAndUnfulfilledTasks() {
   mainIndicator.max = collectionCheckbox.length;
   mainIndicator.optimum = (collectionCheckbox.length * ninetyPercent).toFixed(2);
 
-  /*запускаем фильтрующую функцию, чтобы при установки/снятии флажка,
+  /* запускаем фильтрующую функцию, чтобы при установки/снятии флажка,
   запись в блокноте моментально отфильтровывалась, а не ждала, пока
-  сделают клик по 'элементу (select)*/
+  сделают клик по 'элементу (select) */
   getFilteredItems();
 }
 
-/*______________Удаление записи___________________________________________*/
-//___функция удаляет запись из списка
+/* ______________Удаление записи___________________________________________ */
+// ___функция удаляет запись из списка
 function deleteNoteElement() {
-  /*Своим результатом метод bind возвращает новую функцию, 
-    внутри которой this будет иметь жестко заданное значение. 
+  /* Своим результатом метод bind возвращает новую функцию,
+    внутри которой this будет иметь жестко заданное значение.
     Объект this указывает на элемент, в котором произошло событие.
-    Метод remove позволяет удалить элемент.*/
+    Метод remove позволяет удалить элемент */
   this.remove();
 
   // пересчитываем выполненные/невыполненные задачи
   calcCompletedAndUnfulfilledTasks();
 
   // переменная содержит элементы списка с классом (main__list-item-text)
-  /*Свойство firstElementChild содержит первый дочерний элемент. 
-  Дочерними элементами считаются все теги, которые непосредственно расположены внутри блока.*/
-  let listItem = this.firstElementChild.firstElementChild.textContent;
+  /* Свойство firstElementChild содержит первый дочерний элемент.
+  Дочерними элементами считаются все теги, которые непосредственно расположены внутри блока */
+  const listItem = this.firstElementChild.firstElementChild.textContent;
   // удаление элемента из массива (arrayListItems)
   for (let i = 0; i < arrayListItems.length; i++) {
     if (listItem === arrayListItems[i]) {
@@ -240,8 +244,8 @@ function deleteNoteElement() {
   }
 }
 
-/*______________Редактирование записи_____________________________________*/
-//___функция изменения состояния, если активна кнопка Добавить
+/* ______________Редактирование записи_____________________________________ */
+// ___функция изменения состояния, если активна кнопка Добавить
 function changingStateAddButton() {
   // меняем название кнопки
   mainBtn.textContent = 'Добавить';
@@ -249,7 +253,7 @@ function changingStateAddButton() {
   condition = false;
 }
 
-//___функция изменения состояния, если активна кнопка Редактировать
+// ___функция изменения состояния, если активна кнопка Редактировать
 function changingStateEditButton() {
   // меняем название кнопки
   mainBtn.textContent = 'Редактировать';
@@ -257,7 +261,7 @@ function changingStateEditButton() {
   condition = true;
 }
 
-//___функция для редактирования записи
+// ___функция для редактирования записи
 function editNote() {
   if (condition === false) {
     // после dblclick по редактируемому элементу, переходим в поле textarea
@@ -265,13 +269,13 @@ function editNote() {
     // Вызываем функцию изменения состояния, для кнопки Редактировать
     changingStateEditButton();
 
-    /*======================================================================
+    /* ======================================================================
     КОД дублируется из функции deleteNoteElement(), попробовать сделать так,
     чтобы он не дублировался, а переиспользовался в этих функциях!!!
-    ======================================================================*/
+    ====================================================================== */
     this.remove();
     calcCompletedAndUnfulfilledTasks();
-    let listItem = this.firstElementChild.firstElementChild.textContent;
+    const listItem = this.firstElementChild.firstElementChild.textContent;
     for (let i = 0; i < arrayListItems.length; i++) {
       if (listItem === arrayListItems[i]) {
         arrayListItems.splice(i, 1);
@@ -280,29 +284,29 @@ function editNote() {
   }
 }
 
-//___функция запускает считывание элементов с заданными классами
+// ___функция запускает считывание элементов с заданными классами
 function startReadingElements() {
-  //___считываемые элементы с классом main__list-item-text
+  // ___считываемые элементы с классом main__list-item-text
   collectionText = document.getElementsByClassName('main__list-item-text');
-  //___считываем элементы с классом main__list - item
+  // ___считываем элементы с классом main__list - item
   collectionLi = document.getElementsByClassName('main__list-item');
-  //___считываем элементы с классом main__list-item-checkbox
+  // ___считываем элементы с классом main__list-item-checkbox
   collectionCheckbox = document.getElementsByClassName(
-    'main__list-item-checkbox'
+    'main__list-item-checkbox',
   );
-  //___считываемые элементы с классом main__list-item-close
+  // ___считываемые элементы с классом main__list-item-close
   collectionClose = document.getElementsByClassName('main__list-item-close');
 }
 
-/*______________Объединяющее все функции событие___________________________*/
+/* ______________Объединяющее все функции событие___________________________ */
 // Отслеживаем событие click при нажатии на кнопку
-mainBtn.addEventListener('click', function () {
-  /*Проверяем записанную строку в поле textarea на:
+mainBtn.addEventListener('click', () => {
+  /* Проверяем записанную строку в поле textarea на:
   -длина этой строки больше 0;
-  -наличие этой строки в уже существующем списке записей*/
+  -наличие этой строки в уже существующем списке записей */
   if (
-    mainTextarea.value.trim().length > 0 &&
-    checkEntriesForRepetition() === false
+    mainTextarea.value.trim().length > 0
+    && checkEntriesForRepetition() === false
   ) {
     // Вызываем функцию (добавление нового элемента списка)
     addNewElementList();
@@ -313,31 +317,57 @@ mainBtn.addEventListener('click', function () {
     // Вызываем функцию изменения состояния, для кнопки Добавить
     changingStateAddButton();
 
-    /*В цикле мы получаем доступ к каждому элементу списка,
-  а функция будет вызываться всякий раз, когда указанное событие доставляется 
-  целевому объекту*/
+    /* В цикле мы получаем доступ к каждому элементу списка,
+  а функция будет вызываться всякий раз, когда указанное событие доставляется
+  целевому объекту */
     for (let i = 0; i < collectionLi.length; i++) {
-      //=====Редактирование записи
+      // =====Редактирование записи
       if (condition === false) {
         collectionLi[i].addEventListener('dblclick', editNote);
       }
 
-      //=====Установить/убрать флажок
+      // =====Установить/убрать флажок
       collectionCheckbox[i].addEventListener(
         'click',
-        calcCompletedAndUnfulfilledTasks
+        calcCompletedAndUnfulfilledTasks,
       );
 
-      //=====Удалить запись из списка
+      // =====Удалить запись из списка
       // методом bind привязываем навсегда контекст к функции (deleteNoteElement)
       collectionClose[i].addEventListener(
         'click',
-        deleteNoteElement.bind(collectionLi[i])
+        deleteNoteElement.bind(collectionLi[i]),
       );
     }
-    //=====Фильтрация
+    // =====Фильтрация
     selectElem.addEventListener('click', getFilteredItems);
-    //=====Поиск
+    // =====Поиск
     inpSearchElem.addEventListener('keyup', search);
   }
 });
+
+// ------------------------------
+// самовызывающиеся функция
+(function setTemporaryBackground() {
+  const mainFlexContainer = document.querySelector('.main__flex-container');
+  // Метод createElement позволяет создать новый элемент, передав в параметре имя тега
+  const img = document.createElement('img');
+  img.src = mainFlexContainer.style.backgroundImage.slice(4, -1).replace(/"/g, ''); // извлекаем URL из CSS
+  // пока изображения нет задаем цвет фона
+  mainFlexContainer.style.backgroundColor = '#e6eaaf';
+  /* Браузер позволяет отслеживать загрузку сторонних ресурсов: скриптов, ифреймов,
+  изображений и др. Для этого существуют два события:
+  load – успешная загрузка,
+  error – во время загрузки произошла ошибка */
+  img.onload = () => {
+    // когда изображение загружено убираем цвет фона
+    // и на этом месте появляется изображение
+    mainFlexContainer.style.backgroundColor = 'transparent';
+  };
+
+  img.onerror = () => {
+    // console.log('Ошибка загрузки изображения');
+    // если ошибка загрузки, задаем цвет фона
+    mainFlexContainer.style.backgroundColor = '#e6eaaf';
+  };
+}());

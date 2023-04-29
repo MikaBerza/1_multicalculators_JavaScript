@@ -9,7 +9,7 @@
 .main__flex-container {
   margin: 40px auto;
   max-width: 70rem;
-  background-image: url('/5_img/5_11_notepadImg/bird1.svg');
+  /* background-image: url('/5_img/5_11_notepadImg/bird1.svg'); */
   background-repeat: no-repeat;
   /* cover-масштабирует изображение с сохранением пропорций так, 
   чтобы его ширина или высота равнялась ширине или высоте блока. */
